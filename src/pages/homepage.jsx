@@ -170,6 +170,51 @@ const Homepage = () => {
 							</a>
 						</div>
 
+						<div className="homepage-cv-button">
+							<a
+								href="https://replay.dropbox.com/share/UOz8JuwdjkwKGFAl"
+								target="_blank"
+								rel="noopener noreferrer"
+								style={{ textDecoration: 'none' }}
+							>
+								<button className="download-cv-btn" style={{
+									background: 'yellow',
+									border: 'none',
+									borderRadius: '30px',
+									margin: '2rem auto',
+									padding: '1rem 2rem',
+									color: 'purple',
+									fontWeight: '600',
+									fontSize: '1rem',
+									cursor: 'pointer',
+									letterSpacing: '1px',
+									boxShadow: '0 0 13.5px yellow',
+									animation: 'glow 1.5s ease-in-out infinite alternate',
+									transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+									display: 'block',
+									width: 'fit-content',
+									position: 'relative',
+									overflow: 'hidden',
+									justifyContent:'center',
+									textAlign: 'center'
+								}}
+								onMouseEnter={(e) => {
+									e.target.style.transform = 'translateY(-3px)';
+									e.target.style.boxShadow = '0 0 18.5px yellow';
+									e.target.style.background = '#ffff00';
+								}}
+								onMouseLeave={(e) => {
+									e.target.style.transform = 'translateY(0)';
+									e.target.style.boxShadow = '0 0 13.5px yellow';
+									e.target.style.background = 'yellow';
+								}}
+								>
+									<span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
+										<i className="fas fa-download" style={{ marginRight: '-11.3px' }}></i><center>Download CV</center>
+									</span>
+								</button>
+							</a>
+						</div>
 						<div className="homepage-projects">
 							<AllProjects />
 						</div>
