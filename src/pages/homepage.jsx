@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
+import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/react"
 
 import { faMailBulk } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -79,7 +81,8 @@ const Homepage = () => {
 					content={currentSEO.keywords.join(", ")}
 				/>
 			</Helmet>
-
+			<SpeedInsights/>
+			<Analytics/>
 			<div className="page-content">
 				<NavBar active="home" />
 				<div className="content-wrapper">
