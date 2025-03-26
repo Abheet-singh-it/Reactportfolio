@@ -207,3 +207,5 @@ If you are using Apache as your web server, you can insert this into your .htacc
 ## 🌱 Contribution
 
 If you have any suggestions on what to improve in Reactfolio and would like to share them, feel free to leave an issue or fork project to implement your own ideas
+#   R e a c t p o r t f o l i o  
+ 
