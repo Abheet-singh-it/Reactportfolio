@@ -1,44 +1,75 @@
+
 @import "../../../data/styles.css";
 
 .works-body {
-	margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 .work {
-	display: flex;
-	padding-bottom: 40px;
-	width: 400px;
+    display: flex;
+    padding-bottom: 40px;
+    width: 100%;
+    max-width: 400px;
 }
 
 .work-image {
-	height: 30px;
-	width: 30px;
-	border-radius: 50%;
-	outline: 6px solid white;
-	box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.25);
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    outline: 6px solid white;
+    box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.25);
+    flex-shrink: 0;
 }
 
 .work-title {
-	font-size: 15px;
-	font-weight: 700;
-	padding-left: 20px;
-	margin-top: -3px;
-	color: var(--secondary-color);
+    font-size: 15px;
+    font-weight: 700;
+    padding-left: 20px;
+    margin-top: -3px;
+    color: var(--secondary-color);
 }
 
 .work-subtitle {
-	position: absolute;
-	font-size: 12px;
-	color: var(--secondary-color);
-	padding-top: 22px;
-	padding-left: 50px;
+    position: absolute;
+    font-size: 12px;
+    color: var(--secondary-color);
+    padding-top: 22px;
+    padding-left: 50px;
 }
 
 .work-duration {
-	position: absolute;
-	width: 350px;
-	font-size: 12px;
-	padding-top: 20px;
-	text-align: right;
-	color: var(--tertiary-color);
+    position: absolute;
+    width: calc(100% - 50px);
+    max-width: 350px;
+    font-size: 12px;
+    padding-top: 20px;
+    text-align: right;
+    color: var(--tertiary-color);
+}
+
+@media (max-width: 600px) {
+    .work {
+        padding-bottom: 30px;
+    }
+
+    .work-subtitle {
+        padding-left: 45px;
+    }
+
+    .work-duration {
+        width: calc(100% - 40px);
+        font-size: 9.3px;
+    }
+}
+
+@media (max-width: 400px) {
+    .work-title {
+        font-size: 14px;
+        padding-left: 15px;
+    }
+
+    .work-subtitle {
+        font-size: 11px;
+        padding-left: 40px;
+    }
 }

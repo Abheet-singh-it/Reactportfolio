@@ -1,0 +1,155 @@
+@import "../../../data/styles.css";
+
+.certificates-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.certificate-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.certificate-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.certificate-content {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+    justify-content: space-between;
+}
+
+.certificate-title {
+    color: var(--primary-color);
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.certificate-issuer {
+    color: var(--secondary-color);
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.certificate-date {
+    color: var(--tertiary-color);
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+.view-certificate-btn {
+    background-color: transparent;
+    color: var(--secondary-color);
+    border: 2px solid var(--secondary-color);
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    position: relative;
+    box-shadow: 4px 4px 0px var(--secondary-color);
+    transform: translateY(0);
+}
+
+.view-certificate-btn:hover {
+    background-color: var(--primary-color);
+    transform: scale(1.05);
+}
+
+.coming-soon {
+    background: linear-gradient(145deg, #f3f4f6, #e5e7eb);
+    opacity: 0.8;
+}
+
+.certificate-description {
+    color: var(--secondary-color);
+    font-size: 16px;
+    font-style: italic;
+    margin-top: 15px;
+}
+/* c:\Users\Asus\OneDrive\Documents\Portfolio\reactfolio\src\components\homepage\styles\certificate.css */
+
+/* Add these new styles for the modal */
+.certificate-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.certificate-modal {
+    position: relative;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 90%;
+    max-height: 90vh;
+}
+
+.certificate-modal-image {
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+}
+
+.close-modal-btn {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    background-color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.close-modal-btn:hover {
+    background-color: #f0f0f0;
+}
+/* For responsive design */
+@media (max-width: 768px) {
+    .certificates-container {
+        grid-template-columns: 1fr;
+        padding: 15px;
+    }
+    
+    .certificate-card {
+        min-height: 180px;
+    }
+    
+    .certificate-content {
+        padding: 20px;
+    }
+}

@@ -15,6 +15,7 @@ import Footer from "../components/common/footer";
 import NavBar from "../components/common/navBar";
 import Article from "../components/homepage/article";
 import Works from "../components/homepage/works";
+import Cert from "../components/homepage/Certificate";
 import AllProjects from "../components/projects/allProjects";
 
 import INFO from "../data/user";
@@ -104,7 +105,7 @@ const Homepage = () => {
 								<div className="homepage-image-container">
 									<div className="homepage-image-wrapper">
 										<img
-											src="homepage.jpg"
+											src="https://media.licdn.com/dms/image/v2/D5603AQF0Bo1dWEEcRQ/profile-displayphoto-shrink_800_800/B56ZTmZGE5HsAc-/0/1739032126571?e=1748476800&v=beta&t=J3jmZ2c0ARl8WcpyqECtaLLYjMDbSEM1F958O0VMUTo"
 											alt="about"
 											className="homepage-image"
 										/>
@@ -188,11 +189,14 @@ const Homepage = () => {
 								))}
 							</div>
 
+						
 							<div className="homepage-works">
 								<Works />
 							</div>
 						</div>
-
+						<div className="homepage-projects">
+								<Cert />
+							</div>
 						<div className="page-footer">
 							<Footer />
 						</div>

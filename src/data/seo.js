@@ -2,36 +2,73 @@ const SEO = [
 	{
 		page: "home",
 		description:
-			"I am a backend developer with expertise in Node.js. I have experience in building scalable, secure and reliable web applications using various frameworks and technologies.",
-		keywords: ["Tharindu", "Tharindu N", "Tharindu Nayanajith"],
+			"Abheet Singh - Full-Stack Web Developer & AI Game Designer based in Amritsar, Punjab. Specializing in AI-driven game development and innovative web solutions at AIGC GAMING PRIVATE LIMITED.",
+		keywords: [
+			"Abheet Singh",
+			"Full Stack Developer",
+			"AI Game Designer",
+			"Web Developer Amritsar",
+			"Game Development",
+			"AIGC Gaming",
+			"AI Implementation"
+		],
 	},
 
 	{
 		page: "about",
 		description:
-			"I am a backend developer with expertise in Node.js. I have experience in building scalable, secure and reliable web applications using various frameworks and technologies.",
-		keywords: ["Tharindu", "Tharindu N", "Tharindu Nayanajith"],
+			"Professional profile of Abheet Singh - B.Tech student and Full-Stack Developer with expertise in AI game development, web technologies, and cybersecurity. Currently working at AIGC GAMING PRIVATE LIMITED.",
+		keywords: [
+			"Abheet Singh Profile",
+			"Game Developer",
+			"Full Stack Development",
+			"MERN Stack",
+			"AI Implementation",
+			"Cybersecurity Expert",
+			"Web Developer Punjab"
+		],
 	},
 
 	{
 		page: "articles",
 		description:
-			"Chronological collection of my long-form thoughts on programming, leadership, product design, and more.",
-		keywords: ["Tharindu", "Tharindu N", "Tharindu Nayanajith"],
+			"Technical articles and insights on web development, AI gaming, and technology innovation by Abheet Singh. Sharing knowledge about game development, AI implementation, and web technologies.",
+		keywords: [
+			"Tech Articles",
+			"AI Gaming Articles",
+			"Web Development Blog",
+			"Game Development Insights",
+			"AI Implementation Guide",
+			"Abheet Singh Blog"
+		],
 	},
 
 	{
 		page: "projects",
 		description:
-			"I've worked on a variety of projects over the years and I'm proud of the progress I've made. Many of these projects are open-source and available for others to explore and contribute to.",
-		keywords: ["Tharindu", "Tharindu N", "Tharindu Nayanajith"],
+			"Portfolio of innovative projects by Abheet Singh including AI NPC systems, PvP bots, and gaming platforms. Showcasing expertise in AI implementation and full-stack development.",
+		keywords: [
+			"AI Gaming Projects",
+			"Web Development Portfolio",
+			"Game Development Projects",
+			"AI NPC System",
+			"PvP Bot Development",
+			"Full Stack Projects"
+		],
 	},
 
 	{
 		page: "contact",
 		description:
-			"If you're interested in collaborating on a project, feel free to reach out to me. I'm always open to new ideas and opportunities.",
-		keywords: ["Tharindu", "Tharindu N", "Tharindu Nayanajith"],
+			"Connect with Abheet Singh - Full-Stack Developer and AI Game Designer in Amritsar, Punjab. Available for web development and AI gaming projects.",
+		keywords: [
+			"Contact Abheet Singh",
+			"Hire Game Developer",
+			"Web Development Services",
+			"AI Implementation Expert",
+			"Developer Amritsar",
+			"Project Collaboration"
+		],
 	},
 ];
 
