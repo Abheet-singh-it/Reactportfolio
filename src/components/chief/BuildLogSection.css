@@ -1,0 +1,208 @@
+/* Build Log — pipeline + terminal-style certs & projects */
+.buildlog-section {
+	position: relative;
+	width: 100%;
+	padding: 4rem 1.5rem 6rem;
+	overflow: hidden;
+}
+
+.buildlog-header {
+	text-align: center;
+	margin-bottom: 3rem;
+}
+
+.buildlog-title {
+	font-family: var(--chief-font, "Geist", sans-serif);
+	font-size: clamp(2rem, 5vw, 3rem);
+	font-weight: 700;
+	letter-spacing: -0.02em;
+	color: var(--chief-text);
+	margin: 0 0 0.5rem;
+}
+
+.buildlog-sub {
+	font-size: 0.85rem;
+	letter-spacing: 0.1em;
+	color: var(--chief-accent);
+	opacity: 0.95;
+	margin: 0;
+}
+
+/* Pipeline: horizontal stages with animated line */
+.buildlog-pipeline {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	max-width: 42rem;
+	margin: 0 auto 3.5rem;
+	padding: 0 0.5rem;
+}
+
+.buildlog-line-wrap {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	right: 0;
+	height: 2px;
+	background: rgba(94, 234, 212, 0.15);
+	border-radius: 2px;
+	transform: translateY(-50%);
+	overflow: hidden;
+}
+
+.buildlog-line {
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	background: linear-gradient(90deg, var(--chief-accent), var(--chief-cyan));
+	border-radius: 2px;
+	transform-origin: left;
+	transform: scaleX(0);
+	transition: none;
+}
+
+.buildlog-stage {
+	position: relative;
+	z-index: 2;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.buildlog-stage-dot {
+	width: 48px;
+	height: 48px;
+	border-radius: 50%;
+	background: rgba(10, 14, 23, 0.9);
+	border: 2px solid rgba(94, 234, 212, 0.4);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0 0 20px rgba(94, 234, 212, 0.15);
+}
+
+.buildlog-stage-dot .material-symbols-outlined {
+	font-size: 22px;
+	color: var(--chief-accent);
+}
+
+.buildlog-stage-label {
+	font-family: var(--chief-font);
+	font-size: 0.7rem;
+	text-transform: uppercase;
+	letter-spacing: 0.12em;
+	color: var(--chief-muted);
+}
+
+/* Log entries: terminal style */
+.buildlog-logs {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 2.5rem;
+	max-width: 52rem;
+	margin: 0 auto;
+}
+
+.buildlog-group {
+	background: rgba(10, 14, 23, 0.6);
+	border: 1px solid rgba(94, 234, 212, 0.15);
+	border-radius: 12px;
+	padding: 1.25rem 1.5rem;
+	backdrop-filter: blur(8px);
+}
+
+.buildlog-group-title {
+	font-family: var(--arch-mono, "JetBrains Mono", monospace);
+	font-size: 0.75rem;
+	color: var(--chief-accent);
+	margin-bottom: 1rem;
+	letter-spacing: 0.05em;
+}
+
+.buildlog-prompt {
+	opacity: 0.8;
+	margin-right: 0.35rem;
+}
+
+.buildlog-row {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 0.5rem 0.75rem;
+	padding: 0.6rem 0;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+	font-size: 0.85rem;
+	text-decoration: none;
+	color: inherit;
+	transition: background 0.2s, border-color 0.2s;
+}
+
+.buildlog-row:last-child {
+	border-bottom: none;
+}
+
+.buildlog-row-link:hover {
+	background: rgba(94, 234, 212, 0.06);
+	border-radius: 6px;
+	margin: 0 -0.5rem;
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
+}
+
+.buildlog-date,
+.buildlog-tag {
+	font-family: var(--arch-mono, monospace);
+	font-size: 0.7rem;
+	color: var(--chief-muted);
+}
+
+.buildlog-name {
+	font-weight: 500;
+	color: var(--chief-text);
+	flex: 1;
+	min-width: 0;
+}
+
+.buildlog-status {
+	font-size: 0.7rem;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	color: var(--chief-teal, #14b8a6);
+}
+
+.buildlog-footer-note {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	margin-top: 2.5rem;
+	font-size: 0.75rem;
+	color: var(--chief-muted);
+	letter-spacing: 0.06em;
+}
+
+.buildlog-footer-note .material-symbols-outlined {
+	font-size: 16px;
+	color: var(--chief-accent);
+	opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+	.buildlog-pipeline {
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 1.5rem;
+	}
+
+	.buildlog-line-wrap {
+		display: none;
+	}
+
+	.buildlog-logs {
+		grid-template-columns: 1fr;
+	}
+}

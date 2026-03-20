@@ -17,33 +17,37 @@
 	flex-basis: 80%;
 	min-width: 700px;
 	mix-blend-mode: normal;
-	border-radius: 20px;
-	opacity: 0.8;
+	border-radius: 12px;
+	opacity: 0.9;
 	padding: 30px;
+	background: rgba(10, 14, 23, 0.4);
+	border: 1px solid rgba(94, 234, 212, 0.12);
 }
 
 .article-right-side:hover {
-	background: #fafafa;
+	background: rgba(10, 14, 23, 0.7);
+	border-color: rgba(94, 234, 212, 0.25);
 	opacity: 1;
-	transition: background-color 0.3s ease-in-out;
+	transition: background-color 0.3s ease-in-out, border-color 0.3s ease;
 }
 
 .article-date {
 	padding-top: 30px;
 	font-size: 15px;
-	color: var(--tertiary-color);
+	color: var(--chief-muted, var(--tertiary-color));
 }
 
 .article-title {
-	color: #000000;
+	color: var(--chief-text, #e2e8f0);
 	font-size: 16px;
 	font-weight: 600;
+	font-family: var(--chief-font, "Geist", sans-serif);
 }
 
 .article-description {
 	padding-top: 10px;
 	font-size: 12px;
-	color: var(--secondary-color);
+	color: var(--chief-muted, var(--secondary-color));
 	font-weight: 480;
 	line-height: 25px;
 }
@@ -51,7 +55,7 @@
 .article-link {
 	padding-top: 10px;
 	font-size: 14px;
-	color: var(--link-color);
+	color: var(--chief-accent);
 	font-weight: 700;
 }
 

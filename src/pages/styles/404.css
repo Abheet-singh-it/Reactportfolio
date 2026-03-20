@@ -1,97 +1,73 @@
+/* 404 — chief frontend theme */
 .not-found {
-	overflow: hidden;
-	height: 100vh;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
 }
 
 .notfound-logo-container {
 	display: flex;
-	justify-content: left;
-	padding-top: 25px;
-}
-
-.notfound-logo {
-	display: flex;
-	position: fixed;
-	border: 1px solid white;
-	border-radius: 50%;
-	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
-	top: 4vh;
-	z-index: 999;
+	justify-content: flex-start;
+	padding-top: 1rem;
 }
 
 .notfound-container {
 	display: flex;
 	flex-direction: column;
-	height: 100%;
+	flex: 1;
 	margin: 0;
-	padding-top: 120px;
+	padding-top: 4rem;
 }
 
 .notfound-message {
-	position: fixed;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+	text-align: center;
+	padding: 2rem;
 }
 
 .notfound-title {
-	font-family: var(--secondary-font);
-	color: var(--primary-color);
-	font-size: 80px;
-	padding-top: 15px;
+	font-family: var(--chief-font);
+	color: var(--chief-text);
+	font-size: clamp(3rem, 12vw, 5rem);
 	font-weight: 700;
+	margin-bottom: 1rem;
 }
 
 .not-found-message {
-	color: var(--secondary-color);
-	font-size: 2rem;
-	margin: 2rem 0;
-	text-align: center;
+	color: var(--chief-muted);
+	font-size: clamp(1rem, 2.5vw, 1.25rem);
+	margin: 1.5rem 0 2rem;
+	line-height: 1.6;
+	max-width: 28rem;
 }
 
 .not-found-link {
-	font-size: 1.5rem;
-	text-decoration: none;
-	color: #fff;
-	background-color: var(--link-color);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
 	padding: 1rem 2rem;
-	border-radius: 50px;
-	transition: all 0.3s ease-in-out;
+	font-family: var(--chief-font);
+	font-size: 0.9rem;
+	font-weight: 700;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	border-radius: 6px;
+	transition: background 0.2s, box-shadow 0.2s;
 }
 
 .not-found-link:hover {
-	background-color: #fff;
-	color: var(--link-color);
-	box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+	box-shadow: 0 0 24px rgba(94, 234, 212, 0.35);
 }
 
 @media (max-width: 500px) {
-	.notfound-message {
-		position: absolute;
-		top: auto;
-		left: auto;
-		width: 100%;
-		transform: none;
-	}
-
 	.notfound-title {
-		font-size: 50px;
+		font-size: 2.5rem;
 	}
 
 	.not-found-message {
-		width: 100%;
-		font-size: 15px;
-		margin-top: 10px;
-		margin-left: -5px;
-		margin-right: 32px;
-	}
-
-	.not-found-link {
-		font-size: 15px;
-		padding: 15px 15px;
+		font-size: 1rem;
 	}
 }

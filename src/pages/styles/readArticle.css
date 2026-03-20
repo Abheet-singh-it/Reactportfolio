@@ -1,68 +1,100 @@
-@import "../../data/styles.css";
-
+/* Read Article — chief frontend theme */
 .read-article-logo-container {
 	display: flex;
-	justify-content: left;
-	padding-top: 25px;
+	justify-content: flex-start;
+	padding-top: 1rem;
 }
 
 .read-article-logo {
 	display: flex;
 	position: fixed;
-	border: 1px solid white;
+	border: 1px solid rgba(94, 234, 212, 0.3);
 	border-radius: 50%;
-	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
-	top: 4vh;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+	top: 5.5rem;
+	z-index: 10;
 }
 
 .read-article-container {
 	display: flex;
-	height: 100%;
 	margin: 0;
-	padding-top: 120px;
+	padding-top: 6rem;
 }
 
 .read-article-back {
-	padding-top: 68px;
-	padding-right: 50px;
-	width: 40px;
-	height: 40px;
+	padding-top: 0.5rem;
+	padding-right: 1.5rem;
+	flex-shrink: 0;
 }
 
 .read-article-back-button {
-	width: 50px;
+	width: 44px;
+	height: 44px;
 	border-radius: 50%;
-	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+	cursor: pointer;
+	border: 1px solid rgba(94, 234, 212, 0.2);
+	transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.read-article-back-button:hover {
+	border-color: var(--chief-accent);
+	box-shadow: 0 0 20px rgba(94, 234, 212, 0.2);
 }
 
 .read-article-wrapper {
-	width: 80%;
-	padding-top: 30px;
+	width: 100%;
+	max-width: 720px;
+	padding-top: 0.5rem;
 }
 
 .read-article-date-container {
-	border-left: 2px solid var(--quaternary-color);
-	color: var(--tertiary-color);
-	font-size: 16 px;
-	align-items: center;
-	height: 22px;
+	border-left: 2px solid rgba(94, 234, 212, 0.4);
+	color: var(--chief-muted);
+	font-size: 0.9rem;
+	padding-left: 1rem;
 }
 
 .read-article-date {
-	font-family: var(--primary-font);
-	padding-left: 15px;
+	font-family: var(--chief-font);
 }
 
 .read-article-title {
-	padding-top: 50px;
-	padding-bottom: 50px;
+	padding-top: 2rem;
+	padding-bottom: 1.5rem;
 	width: 100% !important;
+	font-family: var(--chief-font);
+	color: var(--chief-text);
 }
 
 .read-article-body {
-	padding-bottom: 50px;
-	font-size: 16px;
-	line-height: 30px;
-	font-family: system-ui;
-	color: #52525b;
+	padding-bottom: 4rem;
+	font-size: 1.0625rem;
+	line-height: 1.75;
+	font-family: var(--chief-font);
+	color: var(--chief-muted);
+}
+
+.read-article-body a {
+	color: var(--chief-accent);
+}
+
+.read-article-body h1,
+.read-article-body h2,
+.read-article-body h3 {
+	color: var(--chief-text);
+	margin-top: 2rem;
+	margin-bottom: 0.75rem;
+}
+
+@media (max-width: 768px) {
+	.read-article-container {
+		flex-direction: column;
+		padding-top: 4rem;
+	}
+
+	.read-article-back {
+		padding-right: 0;
+		padding-bottom: 1rem;
+	}
 }

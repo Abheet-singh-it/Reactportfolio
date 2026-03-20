@@ -3,13 +3,14 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import styled from "styled-components";
 
-import NavBar from "../components/common/navBar";
-import Footer from "../components/common/footer";
+import ArchitectNav from "../components/quantum/ArchitectNav";
+import ArchitectFooter from "../components/quantum/ArchitectFooter";
 import Logo from "../components/common/logo";
 
 import INFO from "../data/user";
 import myArticles from "../data/articles";
 
+import "../styles/chief-theme.css";
 import "./styles/readArticle.css";
 
 let ArticleStyle = styled.div``;
@@ -36,10 +37,10 @@ const ReadArticle = () => {
 				<meta name="keywords" content={article().keywords.join(", ")} />
 			</Helmet>
 
-			<div className="page-content">
-				<NavBar />
+			<div className="page-content chief-page">
+				<ArchitectNav />
 
-				<div className="content-wrapper">
+				<div className="content-wrapper chief-content-wrapper">
 					<div className="read-article-logo-container">
 						<div className="read-article-logo">
 							<Logo width={46} />
@@ -73,7 +74,7 @@ const ReadArticle = () => {
 						</div>
 					</div>
 					<div className="page-footer">
-						<Footer />
+						<ArchitectFooter />
 					</div>
 				</div>
 			</div>

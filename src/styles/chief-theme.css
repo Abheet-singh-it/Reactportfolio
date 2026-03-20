@@ -1,0 +1,113 @@
+/* Chief UI theme - Reference: cinematic dark + teal/cyan (rajesh-portfolio style) */
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap");
+
+:root {
+	--chief-bg: #0a0e17;
+	--chief-bg-soft: #050810;
+	--chief-accent: #5eead4;
+	--chief-accent-dim: #2dd4bf;
+	--chief-cyan: #22d3ee;
+	--chief-teal: #14b8a6;
+	--chief-text: #eae5ec;
+	--chief-muted: #94a3b8;
+	--chief-font: "Geist", sans-serif;
+	--chief-vh: 100vh;
+	--chief-vh: 100svh;
+	--chief-c-width: calc(100% - 30px);
+	--chief-c-max: 1920px;
+}
+
+/* Override arch theme when chief theme is active */
+.chief-root {
+	--arch-bg-dark: var(--chief-bg);
+	--arch-primary: var(--chief-accent);
+	--arch-text: var(--chief-text);
+	--arch-muted: var(--chief-muted);
+	--arch-font: var(--chief-font);
+}
+
+.chief-root,
+.chief-root body {
+	background-color: var(--chief-bg);
+	color: var(--chief-text);
+	font-family: var(--chief-font);
+}
+
+/* Rich background: grid + gradient + orbs */
+.chief-root::before {
+	content: "";
+	position: fixed;
+	inset: 0;
+	background-image:
+		linear-gradient(rgba(94, 234, 212, 0.03) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(94, 234, 212, 0.03) 1px, transparent 1px);
+	background-size: 48px 48px;
+	pointer-events: none;
+	z-index: 0;
+}
+
+.chief-root::after {
+	content: "";
+	position: fixed;
+	inset: 0;
+	background: radial-gradient(ellipse 120% 80% at 50% -20%, rgba(94, 234, 212, 0.08), transparent 50%),
+		radial-gradient(ellipse 80% 60% at 100% 80%, rgba(34, 211, 238, 0.06), transparent 45%);
+	pointer-events: none;
+	z-index: 0;
+}
+
+/* Glow orbs (reference-style) */
+.chief-glow-orb {
+	position: fixed;
+	width: 300px;
+	height: 300px;
+	border-radius: 50%;
+	background-color: var(--chief-cyan);
+	box-shadow: inset -50px 40px 50px rgba(0, 180, 180, 0.5);
+	filter: blur(60px);
+	pointer-events: none;
+	z-index: 0;
+}
+
+.chief-glow-orb--tl {
+	top: 0;
+	left: 0;
+	transform: translate(-50%, -50%);
+	animation: chief-orb-rotate 12s linear infinite;
+}
+
+.chief-glow-orb--br {
+	bottom: 10%;
+	right: 0;
+	transform: translate(30%, 0);
+	opacity: 0.5;
+}
+
+.chief-glow-orb--br2 {
+	bottom: 60%;
+	right: 15%;
+	width: 200px;
+	height: 200px;
+	opacity: 0.25;
+	animation: chief-orb-float 8s ease-in-out infinite;
+}
+
+@keyframes chief-orb-float {
+	0%, 100% { transform: translate(0, 0); }
+	50% { transform: translate(-20px, -15px); }
+}
+
+/* Section titles — reference: letter-spacing, uppercase */
+.chief-section-title {
+	font-family: var(--chief-font);
+	font-size: clamp(1.5rem, 4vw, 2.25rem);
+	font-weight: 600;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	color: var(--chief-accent);
+}
+
+@keyframes chief-orb-rotate {
+	0% { transform: translate(-50%, -50%) rotate(0deg); }
+	100% { transform: translate(-50%, -50%) rotate(360deg); }
+}

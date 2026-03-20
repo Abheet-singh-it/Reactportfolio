@@ -1,0 +1,163 @@
+/* Chief Frontend Engineer — reference-style navbar (RAJESH-PORTFOLIO-UI-UX-DEEP-DIVE) */
+.chief-header {
+	position: fixed;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 50;
+	width: 100%;
+	max-width: var(--chief-c-max, 1920px);
+	margin: 0 auto;
+	border-bottom: 1px solid rgba(94, 234, 212, 0.15);
+	background: rgba(10, 14, 23, 0.85);
+	backdrop-filter: blur(14px);
+	-webkit-backdrop-filter: blur(14px);
+	padding: 1.25rem 1.5rem;
+}
+
+.chief-header-inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: 1rem;
+	width: 100%;
+	max-width: var(--chief-c-width, 94%);
+	margin: 0 auto;
+}
+
+.chief-header-logo {
+	font-family: var(--chief-font, "Geist", sans-serif);
+	font-size: 0.875rem;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	color: var(--chief-text);
+	text-decoration: none;
+	transition: color 0.2s;
+}
+
+.chief-header-logo:hover {
+	color: var(--chief-accent);
+}
+
+.chief-header-email {
+	display: none;
+	font-size: 0.8125rem;
+	letter-spacing: 0.02em;
+	color: var(--chief-muted);
+	text-decoration: none;
+	transition: color 0.2s;
+}
+
+.chief-header-email:hover {
+	color: var(--chief-accent);
+}
+
+.chief-nav {
+	display: flex;
+	align-items: center;
+	gap: 2.5rem;
+}
+
+.chief-nav-link {
+	text-decoration: none;
+	color: var(--chief-muted);
+	font-family: var(--chief-font);
+	font-size: 0.75rem;
+	font-weight: 600;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	transition: color 0.2s;
+}
+
+.chief-nav-link:hover {
+	color: var(--chief-accent);
+}
+
+/* HoverLinks-style: slide-up duplicate (reference) */
+.chief-nav-link-inner {
+	position: relative;
+	display: inline-block;
+	overflow: hidden;
+	height: 1.2em;
+}
+
+.chief-nav-link-text {
+	display: block;
+	transition: transform 0.25s ease;
+}
+
+.chief-nav-link-text--hover {
+	position: absolute;
+	top: 0;
+	left: 0;
+	transform: translateY(100%);
+	color: var(--chief-accent);
+}
+
+.chief-nav-link:hover .chief-nav-link-text:first-child {
+	transform: translateY(-100%);
+}
+
+.chief-nav-link:hover .chief-nav-link-text--hover,
+.chief-nav-link--active .chief-nav-link-text--hover {
+	transform: translateY(0);
+}
+
+.chief-nav-link--active {
+	color: var(--chief-accent);
+}
+
+.chief-nav-link--active .chief-nav-link-text:first-child {
+	transform: translateY(-100%);
+}
+
+.chief-header-cta {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.5rem 1.25rem;
+	font-family: var(--chief-font);
+	font-size: 0.7rem;
+	font-weight: 700;
+	letter-spacing: 0.15em;
+	text-transform: uppercase;
+	color: var(--chief-bg);
+	background: var(--chief-accent);
+	border: none;
+	border-radius: 2px;
+	text-decoration: none;
+	transition: background 0.2s, box-shadow 0.2s;
+}
+
+.chief-header-cta:hover {
+	background: var(--chief-teal, #14b8a6);
+	box-shadow: 0 0 20px rgba(94, 234, 212, 0.35);
+}
+
+.chief-nav-fade {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 120px;
+	background: linear-gradient(180deg, var(--chief-bg) 0%, transparent 100%);
+	pointer-events: none;
+	opacity: 0;
+	transition: opacity 0.3s;
+}
+
+@media (min-width: 768px) {
+	.chief-header { padding: 1.25rem 2rem; }
+	.chief-nav { gap: 3rem; }
+	.chief-nav-link { font-size: 0.8125rem; }
+}
+
+@media (min-width: 900px) {
+	.chief-header-email { display: block; }
+}
+
+@media (min-width: 1200px) {
+	.chief-header-inner { max-width: calc(100% - 160px); }
+	.chief-nav { gap: 4rem; }
+}

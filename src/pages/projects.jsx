@@ -1,14 +1,15 @@
 import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
 
-import NavBar from "../components/common/navBar";
-import Footer from "../components/common/footer";
+import ArchitectNav from "../components/quantum/ArchitectNav";
+import ArchitectFooter from "../components/quantum/ArchitectFooter";
 import Logo from "../components/common/logo";
 import AllProjects from "../components/projects/allProjects";
 
 import INFO from "../data/user";
 import SEO from "../data/seo";
 
+import "../styles/chief-theme.css";
 import "./styles/projects.css";
 
 const Projects = () => {
@@ -30,7 +31,7 @@ const Projects = () => {
 			</Helmet>
 
 			<div className="page-content">
-				<NavBar active="projects" />
+				<ArchitectNav />
 				<div className="content-wrapper">
 					<div className="projects-logo-container">
 						<div className="projects-logo">
@@ -38,6 +39,7 @@ const Projects = () => {
 						</div>
 					</div>
 					<div className="projects-container">
+						<h3 className="quantum-section-label">// NEURAL INTERFACE MODULES</h3>
 						<div className="title projects-title">
 							Things I’ve made trying to put my dent in the
 							universe.
@@ -61,7 +63,7 @@ const Projects = () => {
 						</div>
 					</div>
 					<div className="page-footer">
-						<Footer />
+						<ArchitectFooter />
 					</div>
 				</div>
 			</div>

@@ -1,11 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Heebo:wght@300&family=Roboto:wght@500&display=swap");
 @import "./data/styles.css";
+@import "./quantum-theme.css";
+@import "./styles/chief-theme.css";
+
+html {
+	scroll-behavior: smooth;
+}
 
 body {
 	margin: 0;
-	font-family: var(--primary-font);
+	font-family: var(--chief-font, var(--primary-font));
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	background-color: var(--chief-bg, var(--qc-bg));
+	color: var(--chief-text, var(--qc-text));
+	overflow-x: hidden;
 }
 
 code {

@@ -1,13 +1,15 @@
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 import { faFaceSadTear } from "@fortawesome/free-regular-svg-icons";
 
-import NavBar from "../components/common/navBar";
+import ArchitectNav from "../components/quantum/ArchitectNav";
+import ArchitectFooter from "../components/quantum/ArchitectFooter";
 import Logo from "../components/common/logo";
 
 import INFO from "../data/user";
 
+import "../styles/chief-theme.css";
 import "./styles/404.css";
 
 const Notfound = () => {
@@ -17,9 +19,9 @@ const Notfound = () => {
 
 	return (
 		<React.Fragment>
-			<div className="not-found page-content">
-				<NavBar />
-				<div className="content-wrapper">
+			<div className="not-found page-content chief-page">
+				<ArchitectNav />
+				<div className="content-wrapper chief-content-wrapper">
 					<div className="notfound-logo-container">
 						<div className="projects-logo">
 							<Logo width={46} />
@@ -31,17 +33,18 @@ const Notfound = () => {
 								Oops! <FontAwesomeIcon icon={faFaceSadTear} />
 							</div>
 							<div className="not-found-message">
-								We can't seem to find the page you're looking
-								for.
+								We can't seem to find the page you're looking for.
 								<br />
-								The requested URL "{window.location.href}" was
-								not found on this server.
+								The requested URL was not found on this server.
 							</div>
-							<a href="/" className="not-found-link">
-								Go back to the home page
-							</a>
+							<Link to="/" className="chief-btn-primary not-found-link">
+								Back to Home
+							</Link>
 						</div>
 					</div>
+				</div>
+				<div className="page-footer">
+					<ArchitectFooter />
 				</div>
 			</div>
 		</React.Fragment>

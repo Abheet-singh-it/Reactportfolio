@@ -2,23 +2,30 @@
 
 .project {
 	mix-blend-mode: normal;
-	border-radius: 20px;
-	opacity: 0.8;
+	border-radius: 12px;
+	opacity: 1;
 	height: 100%;
+	background: rgba(10, 14, 23, 0.6);
+	backdrop-filter: blur(12px);
+	border: 1px solid rgba(94, 234, 212, 0.2);
+	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+	transition: all 0.3s ease;
+	overflow: hidden;
+}
+
+.project:hover {
+	border-color: rgba(94, 234, 212, 0.5);
+	transform: translateY(-4px);
+	box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 0 24px rgba(94, 234, 212, 0.15);
 }
 
 .project a {
 	text-decoration: none;
-}
-
-.project:hover {
-	background: #fafafa;
-	opacity: 1;
-	transition: background-color 0.3s ease-in-out;
+	color: inherit;
 }
 
 .project:hover .project-link {
-	color: var(--link-color);
+	color: var(--chief-accent, var(--qc-glow));
 	transition: color 0.3s ease-in-out;
 }
 
@@ -35,8 +42,8 @@
 }
 
 .project-title {
-	font-family: var(--secondary-font);
-	color: var(--primary-color);
+	font-family: var(--chief-font, var(--secondary-font), "Geist", sans-serif);
+	color: var(--chief-text, var(--qc-text));
 	font-size: 16px;
 	padding-top: 15px;
 	margin-bottom: 1em;
@@ -44,15 +51,16 @@
 }
 
 .project-description {
-	color: var(--secondary-color);
+	color: var(--chief-muted, var(--qc-muted));
 }
 
 .project-link {
 	display: flex;
 	align-items: center;
-	color: var(--secondary-color);
+	color: var(--chief-muted, var(--qc-muted));
 	font-size: 12px;
 	padding-top: 20px;
+	font-family: var(--chief-font, "Geist", sans-serif);
 }
 
 .project-link-icon {

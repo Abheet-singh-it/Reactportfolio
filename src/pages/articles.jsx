@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
 
-import NavBar from "../components/common/navBar";
-import Footer from "../components/common/footer";
+import ArchitectNav from "../components/quantum/ArchitectNav";
+import ArchitectFooter from "../components/quantum/ArchitectFooter";
 import Logo from "../components/common/logo";
 import Article from "../components/articles/article";
 
@@ -10,6 +10,7 @@ import INFO from "../data/user";
 import SEO from "../data/seo";
 import myArticles from "../data/articles";
 
+import "../styles/chief-theme.css";
 import "./styles/articles.css";
 
 const Articles = () => {
@@ -30,9 +31,9 @@ const Articles = () => {
 				/>
 			</Helmet>
 
-			<div className="page-content">
-				<NavBar active="articles" />
-				<div className="content-wrapper">
+			<div className="page-content chief-page">
+				<ArchitectNav />
+				<div className="content-wrapper chief-content-wrapper">
 					<div className="articles-logo-container">
 						<div className="articles-logo">
 							<Logo width={46} />
@@ -40,7 +41,7 @@ const Articles = () => {
 					</div>
 
 					<div className="articles-main-container">
-						<div className="title articles-title">
+						<div className="title articles-title chief-title">
 							{INFO.articles.title}
 						</div>
 
@@ -68,7 +69,7 @@ const Articles = () => {
 						</div>
 					</div>
 					<div className="page-footer">
-						<Footer />
+						<ArchitectFooter />
 					</div>
 				</div>
 			</div>

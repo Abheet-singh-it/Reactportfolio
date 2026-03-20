@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(xargs wc:*)",
+      "WebFetch(domain:reactbits.dev)",
+      "Bash(python3 \"$HOME/.claude/plugins/cache/ui-ux-pro-max-skill/ui-ux-pro-max/2.0.1/.claude/skills/ui-ux-pro-max/scripts/search.py\" \"portfolio developer dark modern glassmorphism 3D animation\" --design-system -p \"Abheet Portfolio\")",
+      "Bash(where python:*)",
+      "Bash(where python3:*)",
+      "WebSearch",
+      "Bash(python \"$HOME/.claude/plugins/cache/ui-ux-pro-max-skill/ui-ux-pro-max/2.0.1/.claude/skills/ui-ux-pro-max/scripts/search.py\" \"portfolio developer dark modern glassmorphism 3D animation\" --design-system -p \"Abheet Portfolio\")",
+      "WebFetch(domain:github.com)"
+    ]
+  }
+}

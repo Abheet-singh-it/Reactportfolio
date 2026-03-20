@@ -1,0 +1,42 @@
+/* Advanced contact: glass, focus glow, stagger */
+.arch-protocol-advanced {
+	padding: 4rem 1.5rem 6rem;
+}
+
+.arch-protocol-glass {
+	background: rgba(10, 14, 23, 0.6);
+	backdrop-filter: blur(20px);
+	-webkit-backdrop-filter: blur(20px);
+	border: 1px solid rgba(94, 234, 212, 0.2);
+	box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.arch-protocol-glass .arch-protocol-inner {
+	background: rgba(10, 14, 23, 0.4);
+	border: 1px solid rgba(94, 234, 212, 0.1);
+}
+
+.arch-protocol-form input,
+.arch-protocol-form textarea {
+	transition: box-shadow 0.25s, border-color 0.25s;
+}
+
+.arch-protocol-form input:focus,
+.arch-protocol-form textarea:focus {
+	border-color: var(--chief-accent);
+	outline: none;
+}
+
+.arch-protocol-form label {
+	color: var(--chief-accent, var(--arch-primary));
+}
+
+.arch-btn-submit {
+	background: linear-gradient(135deg, var(--chief-accent), var(--chief-teal, #14b8a6));
+	transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.arch-btn-submit:hover {
+	transform: translateY(-1px);
+	box-shadow: 0 8px 24px rgba(94, 234, 212, 0.35);
+}

@@ -1,0 +1,90 @@
+/* Advanced footer: orbs, layout, GSAP-ready */
+.arch-footer-advanced {
+	position: relative;
+	overflow: hidden;
+}
+
+.arch-footer-bg {
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	z-index: 0;
+}
+
+.arch-footer-orb {
+	position: absolute;
+	width: 240px;
+	height: 240px;
+	border-radius: 50%;
+	background: var(--chief-cyan, #22d3ee);
+	box-shadow: inset -30px 25px 40px rgba(0, 180, 180, 0.4);
+	filter: blur(50px);
+	opacity: 0.25;
+}
+
+.arch-footer-orb-l {
+	bottom: -20%;
+	left: -5%;
+}
+
+.arch-footer-orb-r {
+	top: -30%;
+	right: -8%;
+	opacity: 0.2;
+}
+
+.arch-footer-inner {
+	position: relative;
+	z-index: 1;
+	width: 100%;
+	max-width: var(--chief-c-max, 1920px);
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	gap: 2rem;
+	padding: 3rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+	.arch-footer-inner {
+		flex-direction: row;
+		padding: 3rem 2rem;
+	}
+}
+
+.arch-footer-brand {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.35rem;
+}
+
+@media (min-width: 768px) {
+	.arch-footer-brand { align-items: flex-start; }
+}
+
+.arch-footer-brand-main {
+	font-family: var(--arch-mono, var(--chief-font));
+	font-size: 10px;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	color: var(--arch-muted);
+}
+
+.arch-footer-brand-tech {
+	font-family: var(--arch-mono, var(--chief-font));
+	font-size: 9px;
+	color: var(--chief-accent, var(--arch-primary));
+	opacity: 0.9;
+	letter-spacing: 0.05em;
+}
+
+.arch-footer-icon {
+	transition: color 0.2s, transform 0.2s;
+}
+
+.arch-footer-links a:hover .arch-footer-icon {
+	color: var(--chief-accent, var(--arch-primary));
+}

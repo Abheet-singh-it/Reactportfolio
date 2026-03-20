@@ -1,51 +1,64 @@
+/* Articles — chief frontend theme */
 .articles-logo-container {
 	display: flex;
-	justify-content: left;
-	padding-top: 25px;
+	justify-content: flex-start;
+	padding-top: 1rem;
 }
 
 .articles-logo {
 	display: flex;
 	position: fixed;
-	border: 1px solid white;
+	border: 1px solid rgba(94, 234, 212, 0.3);
 	border-radius: 50%;
-	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
-	top: 4vh;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+	top: 5.5rem;
+	z-index: 10;
 }
 
 .articles-main-container {
 	display: flex;
 	flex-direction: column;
-	height: 100%;
 	margin: 0;
-	padding-top: 120px;
+	padding-top: 6rem;
+}
+
+.articles-title {
+	width: 100%;
+	margin-bottom: 0.5rem;
+}
+
+.articles-subtitle {
+	width: 85%;
+	margin-top: 1rem;
+	color: var(--chief-muted);
+	line-height: 1.7;
 }
 
 .articles-container {
 	display: flex;
 	flex-direction: column;
+	margin-top: 2rem;
 }
 
 .articles-wrapper {
-	padding-top: 50px;
-	padding-bottom: 50px;
+	padding: 2rem 0 4rem;
 	display: flex;
 	flex-direction: column;
+	gap: 0.5rem;
 }
 
 .articles-article {
-	padding-top: 0px;
-	padding-left: 35px;
-	padding-bottom: 20px;
-	border-left: 2px solid #f4f4f5;
-	width: 100%;
+	padding: 1.5rem 0 1.5rem 1.5rem;
+	border-left: 2px solid rgba(94, 234, 212, 0.3);
+	transition: border-color 0.2s;
+}
+
+.articles-article:hover {
+	border-left-color: var(--chief-accent);
 }
 
 @media (max-width: 1024px) {
-	.articles-title {
-		width: 100% !important;
-	}
-
+	.articles-title,
 	.articles-subtitle {
 		width: 100% !important;
 	}

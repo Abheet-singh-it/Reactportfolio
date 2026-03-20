@@ -1,123 +1,70 @@
-@import "/src/data/styles.css";
+/* Chief Frontend — global page layout (reference) */
+@import "./data/styles.css";
 
 ::-webkit-scrollbar {
-	width: 10px;
+	width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-	background-color: #f1f1f1;
+	background: var(--chief-bg);
 }
 
 ::-webkit-scrollbar-thumb {
-	background-color: #383636;
-	border-radius: 5px;
+	background: rgba(94, 234, 212, 0.25);
+	border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-	background-color: rgb(0, 0, 0);
+	background: var(--chief-accent);
 }
 
-.page-content {
-	background-color: white;
+.chief-page.page-content {
+	background-color: var(--chief-bg);
+	min-height: 100vh;
 	position: relative;
+	padding-top: 5rem;
 }
 
-.page-content:before,
-.page-content:after {
-	content: "";
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	width: calc((100% - 1200px) / 2);
-	background-color: #fafafa;
-	border: 1px solid #f4f4f5;
-}
-
-.page-content:before {
-	left: 0;
-	z-index: 1;
-}
-
-.page-content:after {
-	right: 0;
-	z-index: 1;
-}
-
-.content-wrapper {
-	max-width: 1000px;
+.chief-content-wrapper.content-wrapper {
+	max-width: min(1200px, calc(100% - 3rem));
 	margin: 0 auto;
+	padding: 0 1.5rem 4rem;
 }
 
-.title {
-	color: var(--primary-color);
-	font-family: var(--secondary-font);
-	font-size: 45px;
+.chief-page .title,
+.chief-title {
+	font-family: var(--chief-font);
+	color: var(--chief-text);
+	font-size: clamp(1.75rem, 4vw, 2.5rem);
 	font-weight: 700;
-	width: 70%;
+	letter-spacing: -0.02em;
 }
 
-.subtitle {
-	padding-top: 10px;
-	color: var(--secondary-color);
-	font-size: 16px;
-	line-height: 28px;
-	width: 70%;
-	margin-top: 25px;
+.chief-page .subtitle {
+	color: var(--chief-muted);
+	font-size: 1rem;
+	line-height: 1.7;
 }
 
-.page-footer {
-	position: block;
+.chief-page .page-footer {
+	margin-top: 3rem;
+	padding-top: 2rem;
+	border-top: 1px solid rgba(94, 234, 212, 0.12);
 }
 
-.page-footer::before {
-	content: "";
-	position: absolute;
-	left: 0;
-	right: 0;
-	border-top: 2px solid var(--tertiary-color);
+.chief-page a {
+	color: var(--chief-accent);
+	text-decoration: none;
+	transition: color 0.2s;
 }
 
-@media (max-width: 1270px) {
-	.page-content:before,
-	.page-content:after {
-		width: calc((100% - 90%) / 2);
-	}
-
-	.content-wrapper {
-		max-width: 90%;
-		padding-left: 10%;
-		padding-right: 10%;
-	}
+.chief-page a:hover {
+	color: var(--chief-teal);
 }
 
-@media (max-width: 1024px) {
-	.page-content:before,
-	.page-content:after {
-		width: calc((100% - 950px) / 2);
-	}
-
-	.content-wrapper {
-		max-width: 980px;
-	}
-}
-
-@media (max-width: 800px) {
-	.content-wrapper {
-		max-width: 90%;
-		margin: 0 auto;
-		padding: 0 10px;
-	}
-
-	.page-content:before,
-	.page-content:after {
-		display: none;
-	}
-
-	.title {
-		width: 100%;
-	}
-
-	.subtitle {
-		width: 100%;
+@media (max-width: 768px) {
+	.chief-content-wrapper.content-wrapper {
+		max-width: calc(100% - 2rem);
+		padding: 0 1rem 3rem;
 	}
 }

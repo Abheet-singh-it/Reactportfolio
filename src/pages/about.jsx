@@ -1,14 +1,15 @@
 import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
 
-import NavBar from "../components/common/navBar";
-import Footer from "../components/common/footer";
+import ArchitectNav from "../components/quantum/ArchitectNav";
+import ArchitectFooter from "../components/quantum/ArchitectFooter";
 import Logo from "../components/common/logo";
 import Socials from "../components/about/socials";
 
 import INFO from "../data/user";
 import SEO from "../data/seo";
 
+import "../styles/chief-theme.css";
 import "./styles/about.css";
 
 const About = () => {
@@ -29,9 +30,9 @@ const About = () => {
 				/>
 			</Helmet>
 
-			<div className="page-content">
-				<NavBar active="about" />
-				<div className="content-wrapper">
+			<div className="page-content chief-page">
+				<ArchitectNav />
+				<div className="content-wrapper chief-content-wrapper">
 					<div className="about-logo-container">
 						<div className="about-logo">
 							<Logo width={46} />
@@ -39,6 +40,7 @@ const About = () => {
 					</div>
 
 					<div className="about-container">
+						<h3 className="chief-section-title about-section-label">Core Profile</h3>
 						<div className="about-main">
 							<div className="about-right-side">
 								<div className="title about-title">
@@ -71,7 +73,7 @@ const About = () => {
 						</div>
 					</div>
 					<div className="page-footer">
-						<Footer />
+						<ArchitectFooter />
 					</div>
 				</div>
 			</div>

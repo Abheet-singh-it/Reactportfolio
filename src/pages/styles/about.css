@@ -1,58 +1,73 @@
+/* About — chief frontend theme */
 .about-logo-container {
 	display: flex;
-	justify-content: left;
-	padding-top: 25px;
+	justify-content: flex-start;
+	padding-top: 1rem;
 }
 
 .about-logo {
 	display: flex;
 	position: fixed;
-	border: 1px solid white;
+	border: 1px solid rgba(94, 234, 212, 0.3);
 	border-radius: 50%;
-	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
-	top: 4vh;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+	top: 5.5rem;
+	z-index: 10;
 }
 
 .about-container {
 	display: flex;
 	flex-direction: column;
-	height: 100%;
 	margin: 0;
-	padding-top: 120px;
+	padding-top: 6rem;
+}
+
+.about-section-label {
+	margin-bottom: 1.5rem;
+	letter-spacing: 0.2em;
 }
 
 .about-main {
 	display: flex;
+	gap: 3rem;
 }
 
 .about-right-side {
-	flex-basis: 900px;
+	flex: 1;
+	min-width: 0;
 }
 
 .about-title {
 	width: 100% !important;
+	font-family: var(--chief-font);
+	color: var(--chief-text);
 }
 
 .about-subtitle {
-	width: 80% !important;
+	width: 85% !important;
+	color: var(--chief-muted);
+	line-height: 1.75;
+	white-space: pre-line;
 }
 
 .about-left-side {
 	display: flex;
 	flex-direction: column;
-	flex-basis: 300px;
+	flex-shrink: 0;
+	width: 320px;
 }
 
 .about-image-container {
-	width: 370px;
+	width: 100%;
+	max-width: 320px;
 }
 
 .about-image-wrapper {
 	display: inline-block;
 	overflow: hidden;
 	width: 100%;
-	border-radius: 10%;
-	transform: rotate(3deg);
+	border-radius: 12px;
+	border: 1px solid rgba(94, 234, 212, 0.15);
 }
 
 .about-image-wrapper img {
@@ -61,8 +76,7 @@
 }
 
 .about-socials {
-	padding-top: 50px;
-	padding-bottom: 50px;
+	padding-top: 2rem;
 }
 
 .about-socials-mobile {
@@ -70,30 +84,22 @@
 }
 
 @media (max-width: 1024px) {
-	.about-logo {
-		z-index: 100;
-	}
-
 	.about-main {
 		flex-direction: column;
 	}
 
-	.about-subtitle {
-		padding-top: 20px !important;
-	}
-
 	.about-left-side {
-		flex-basis: 100%;
 		order: 1;
+		width: 100%;
+		max-width: 320px;
 	}
 
 	.about-right-side {
-		flex-basis: 100%;
 		order: 2;
 	}
 
-	.about-image-container {
-		padding-bottom: 40px;
+	.about-subtitle {
+		width: 100% !important;
 	}
 
 	.about-socials {
@@ -101,17 +107,17 @@
 	}
 
 	.about-socials-mobile {
-		padding-top: 30px;
 		display: flex;
+		padding-top: 2rem;
 	}
 }
 
 @media (max-width: 600px) {
 	.about-container {
-		padding-top: 60px;
+		padding-top: 4rem;
 	}
 
 	.about-image-container {
-		width: 80%;
+		max-width: 85%;
 	}
 }

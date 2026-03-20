@@ -1,0 +1,140 @@
+{
+  "main": {
+    "name": "Abheet Singh",
+    "title": "Abheet Singh - Professional Software Engineer (Full-Stack) | Generative AI & Automation",
+    "email": "abheet8360@gmail.com"
+  },
+  "socials": {
+    "linkedin": "https://www.linkedin.com/in/abheet-singh-3b8238165/",
+    "github": "https://github.com/Abheet-singh-it",
+    "instagram": "https://www.instagram.com/"
+  },
+  "homepage": {
+    "title": "Professional Software Engineer (Full-Stack) | Generative AI & Automation",
+    "description": "Building product-based AIGC solutions at XGaming — an AIGC generative software company offering services partnered with AAA-level Krafton. Full-stack engineering, Generative AI, and automation. Based in Punjab, India.",
+    "workExperience": [
+      {
+        "period": "December 2025 - Present",
+        "company": "XGaming",
+        "location": "Gurugram, Haryana, India",
+        "position": "Software Engineer — AIGC & Product Services",
+        "achievements": [
+          "Building product-based generative software solutions at XGaming, an AIGC company partnered with AAA-level Krafton",
+          "Full-stack engineering, automation, and Generative AI with end-to-end ownership across frontend, backend, and AI workflows"
+        ]
+      },
+      {
+        "period": "September 2023 - December 2025",
+        "company": "XGaming",
+        "location": "Gurugram, Haryana, India",
+        "position": "Minecraft UI/UX Development & Deployment",
+        "achievements": [
+          "Minecraft UI/UX development and deployment for product-based services",
+          "Building intuitive frontend experiences and reliable backend systems in partnership with Krafton-level quality standards"
+        ]
+      },
+      {
+        "period": "June 2024 - July 2024",
+        "company": "Solitaire Infosys Inc",
+        "location": "Chandigarh",
+        "position": "Industrial Training",
+        "achievements": [
+          "Advanced training in software development and system implementation"
+        ]
+      },
+      {
+        "period": "December 2021 - June 2024",
+        "company": "Freelance",
+        "location": "Remote",
+        "position": "Freelance Developer",
+        "achievements": [
+          "Self-motivated development of client projects",
+          "Full-stack delivery with clear communication and on-time execution"
+        ]
+      },
+      {
+        "period": "November 2022 - August 2023",
+        "company": "Asobu",
+        "location": "New Delhi, Delhi, India",
+        "position": "Minecraft UI/UX Development & Deployment",
+        "achievements": [
+          "Minecraft UI/UX development and deployment",
+          "Collaborative delivery in a product environment"
+        ]
+      },
+      {
+        "period": "January 2022 - March 2022",
+        "company": "Defronix Cyber Security",
+        "location": "India (Remote)",
+        "position": "Cybersecurity Trainee",
+        "achievements": [
+          "Learned about cyber security fundamentals and techniques to prevent cyber attacks in a remote setting",
+          "Explored the digital world and gained valuable insights into the cybersecurity field",
+          "Acquired knowledge on how to safeguard sensitive information and data from potential threats"
+        ]
+      }
+    ],
+    "certificates": [
+      {
+        "title": "AIGC Company Training Certificate",
+        "date": "July 2024",
+        "issuer": "AIGC Gaming Private Limited",
+        "image": "https://media.licdn.com/dms/image/v2/D5622AQHbg-8YZMsT_g/feedshare-shrink_800/feedshare-shrink_800/0/1721327297470?e=1746057600&v=beta&t=foVSjkLm3GNfFhPFtuBxgMgkS9beNDQLan7AAhfxcrM",
+        "description": "Professional training certification in AI game development and implementation"
+      },
+      {
+        "title": "Solitaire Infosys Industrial Training",
+        "date": "July 2024",
+        "issuer": "Solitaire Infosys Inc",
+        "image": "https://media.licdn.com/dms/image/v2/D562DAQGeMxbG6NDB1Q/profile-treasury-image-shrink_1920_1920/profile-treasury-image-shrink_1920_1920/0/1722340932316?e=1743480000&v=beta&t=yKlcBx4U5RZCpf16vp2OBkUOM1wbHWm-GaQMx39CVas",
+        "description": "Industrial training in software development and system implementation"
+      }
+    ]
+  },
+  "about": {
+    "title": "Professional Software Engineer (Full-Stack) | Generative AI & Automation",
+    "description": "I work at XGaming, an AIGC generative software solution company building product-based services in partnership with AAA-level Krafton. I deliver production-grade systems with a focus on full-stack engineering, automation, and Generative AI — clear problem understanding, scalable architecture, and end-to-end ownership.\n\nI build intuitive frontend experiences, design reliable and high-performance backend systems, and integrate intelligent workflows that reduce friction and improve efficiency. Recent work includes shipping Code Brain MCP (npm), an MCP server that gives AI coding tools project memory, task classification, and structured reasoning in one place.\n\nI believe strong engineering comes from disciplined execution, sound judgment, and continuous learning. Beyond day-to-day development, I actively explore emerging technologies and share insights on building sustainable software and impactful engineering careers.\n\nTechnical Skills:\n• MERN Stack, Full-Stack Development, Backend\n• Generative AI & Automation, AIGC\n• Frontend & Backend Systems\n• Cybersecurity fundamentals\n\nEducation:\n• Bachelor of Technology (B.Tech), Information Technology — Global Group of Institutes (September 2022 - September 2026)\n• Sri Guru Harkrishan Public School (2013 - 2017)"
+  },
+  "projects": [
+    {
+      "title": "Code Brain MCP",
+      "description": "MCP server for AI coding assistants (Cursor, Claude Desktop, Codex): project memory in .brain/memory.md, task classification (fast/chunk/deep), and structured reasoning — one server so your AI has a persistent brain for the codebase. Open source, MIT. npx -y code-brain-mcp",
+      "logo": "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/javascript/javascript.png",
+      "linkText": "View on npm",
+      "link": "https://www.npmjs.com/package/code-brain-mcp"
+    },
+    {
+      "title": "AI NPC Game Development",
+      "description": "Advanced AI-driven Non-Player Character system implementing sophisticated behavior patterns and dynamic interactions. Developed using cutting-edge AI technologies for enhanced gaming experience.",
+      "logo": "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/python/python.png",
+      "linkText": "View Project",
+      "link": "https://github.com/X-Gaming-Club/AI_AGENT_lobby"
+    },
+    {
+      "title": "AI PvP Bot System",
+      "description": "Innovative AI-powered Player vs Player bot system featuring advanced decision-making algorithms and adaptive gameplay mechanics. Designed for competitive gaming environments.",
+      "logo": "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/javascript/javascript.png",
+      "linkText": "View Project",
+      "link": "https://github.com/X-Gaming-Club/AI-PVP-BOT"
+    },
+    {
+      "title": "Ranked PvP Platform",
+      "description": "Comprehensive ranking system for PvP gaming featuring sophisticated matchmaking algorithms, performance tracking, and competitive ladder implementation.",
+      "logo": "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/javascript/javascript.png",
+      "linkText": "View Project",
+      "link": "https://github.com/X-Gaming-Club/RankedPvP"
+    }
+  ],
+  "skills": [
+    { "category": "Top Skills", "items": ["MERN Stack", "Full-Stack Development", "Backend"] },
+    { "category": "Web Development", "items": ["Node.js", "React.js", "Frontend", "Backend"] },
+    { "category": "Programming", "items": ["Java", "Python", "JavaScript", "PHP"] },
+    { "category": "Database", "items": ["MySQL", "MongoDB"] },
+    { "category": "Other", "items": ["Generative AI", "Automation", "Cybersecurity", "Problem Solving", "Project Management"] }
+  ],
+  "contact": {
+    "phone": "6283857226",
+    "address": "Amritsar, Punjab, India",
+    "languages": ["Hindi", "Punjabi", "English"]
+  }
+}

@@ -3,14 +3,18 @@
 .homepage-article {
 	width: 90%;
 	mix-blend-mode: normal;
-	border-radius: 20px;
-	opacity: 0.8;
+	border-radius: 12px;
+	opacity: 1;
+	background: rgba(10, 14, 23, 0.4);
+	border: 1px solid rgba(94, 234, 212, 0.15);
+	transition: all 0.3s ease;
 }
 
 .homepage-article:hover {
-	background: #fafafa;
+	background: rgba(10, 14, 23, 0.6);
+	border: 1px solid rgba(94, 234, 212, 0.3);
 	opacity: 1;
-	transition: background-color 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
 }
 
 .homepage-article-content {
@@ -19,22 +23,23 @@
 
 .homepage-article-date {
 	opacity: 1;
-	color: var(--tertiary-color);
+	color: var(--chief-muted, var(--qc-muted));
 	font-size: 12px;
 	margin-bottom: 1em;
 }
 
 .homepage-article-title {
 	opacity: 1;
-	color: var(--primary-color);
+	color: var(--chief-text, var(--qc-text));
 	font-size: 16px;
 	margin-bottom: 1em;
 	font-weight: 700;
+	font-family: var(--chief-font, "Geist", sans-serif);
 }
 
 .homepage-article-description {
 	opacity: 1;
-	color: var(--secondary-color);
+	color: var(--chief-muted, var(--qc-muted));
 	font-size: 12px;
 	line-height: 1.5;
 }
@@ -47,8 +52,12 @@
 }
 
 .homepage-article-link a {
-	color: var(--link-color);
+	color: var(--chief-accent, var(--qc-glow));
 	text-decoration: none;
+}
+
+.homepage-article-link a:hover {
+	color: var(--chief-text, var(--qc-text));
 }
 
 @media (max-width: 600px) {

@@ -39,6 +39,9 @@ const Certificate = () => {
 
     return (
         <>
+            <div className="quantum-vault-header">
+                <span>Vault Access: Certified Achievements</span>
+            </div>
             <div className="certificates-container">
                 {certificates.map((cert) => (
                     <div key={cert.id} className="certificate-card">

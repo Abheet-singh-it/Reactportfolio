@@ -1,0 +1,39 @@
+.chief-cursor {
+	--size: 0;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: var(--size);
+	height: var(--size);
+	border-radius: 50%;
+	pointer-events: none;
+	z-index: 9999;
+	background: #e6c3ff;
+	box-shadow: 0 0 30px rgba(175, 131, 255, 0.6);
+	mix-blend-mode: difference;
+	transition: width 0.3s ease, height 0.3s ease;
+}
+
+.chief-cursor--icon {
+	height: calc(var(--cursor-h, 40px) - 16px) !important;
+	width: calc(var(--cursor-h, 40px) - 16px) !important;
+	top: 8px;
+	left: 8px;
+	border-radius: 8px;
+}
+
+.chief-cursor--hide {
+	--size: 0 !important;
+}
+
+@media (max-width: 600px) {
+	.chief-cursor {
+		display: none;
+	}
+}
+
+@media (min-width: 601px) {
+	.chief-cursor {
+		--size: 50px;
+	}
+}

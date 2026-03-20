@@ -1,14 +1,19 @@
+/* Chief theme tokens — fallbacks when .chief-root is present */
 :root {
-	/* ------- colors ------- */
 	--primary-color: #27272a;
 	--secondary-color: #65656d;
 	--tertiary-color: #acacb4;
 	--quaternary-color: #e4e4e7;
 	--link-color: #14b8a6;
-	/* ---------------------- */
 
-	/* ------- fonts ------- */
-	--primary-font: "Heebo", sans-serif;
-	--secondary-font: "Roboto", sans-serif;
-	/* --------------------- */
+	/* Quantum / legacy — mapped to chief when in chief-root */
+	--qc-bg: #0a0e17;
+	--qc-deep: #050810;
+	--qc-glow: #5eead4;
+	--qc-accent: #5eead4;
+	--qc-text: #eae5ec;
+	--qc-muted: #94a3b8;
+
+	--primary-font: "Geist", "Inter", sans-serif;
+	--secondary-font: "Geist", "Roboto", sans-serif;
 }

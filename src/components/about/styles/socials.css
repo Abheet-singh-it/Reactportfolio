@@ -12,22 +12,31 @@
 
 .social-icon {
 	font-size: 15px;
-	color: var(--secondary-color);
+	color: var(--chief-muted, var(--qc-muted));
+}
+
+.social-icon:hover {
+	color: var(--chief-accent, var(--qc-glow));
 }
 
 .social-text {
-	color: var(--secondary-color);
+	color: var(--chief-muted, var(--qc-muted));
 	padding-left: 30px;
 	margin-top: -20px;
 	font-weight: 600;
 	font-size: 14px;
+	font-family: var(--chief-font, "Geist", sans-serif);
+}
+
+.social a:hover .social-text {
+	color: var(--chief-accent, var(--qc-glow));
 }
 
 .email::before {
 	content: "";
 	display: block;
 	padding-top: 20px;
-	border-top: 3px solid #f4f4f5;
+	border-top: 1px solid rgba(94, 234, 212, 0.12);
 	margin-top: 20px;
 }
 

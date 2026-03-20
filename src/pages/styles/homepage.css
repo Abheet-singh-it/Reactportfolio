@@ -1,5 +1,148 @@
 @import "../../data/styles.css";
 
+/* Chief / legacy hero (homepage may use ChiefLanding + Hero3D) */
+.quantum-hero {
+	min-height: 90vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 5rem 1rem 3rem;
+	position: relative;
+}
+
+.quantum-hero-viz {
+	position: relative;
+	width: 100%;
+	max-width: 56rem;
+	height: 500px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 3rem;
+}
+
+.quantum-hero-ring {
+	position: absolute;
+	border: 1px solid rgba(94, 234, 212, 0.2);
+	border-radius: 50%;
+}
+
+.quantum-hero-ring-outer {
+	width: 20rem;
+	height: 20rem;
+	animation: spin 12s linear infinite;
+}
+
+.quantum-hero-ring-mid {
+	width: 16rem;
+	height: 16rem;
+	border-color: rgba(94, 234, 212, 0.25);
+}
+
+.quantum-hero-orb-blur {
+	position: relative;
+	z-index: 10;
+	width: 12rem;
+	height: 12rem;
+	border-radius: 50%;
+	background: linear-gradient(135deg, rgba(94, 234, 212, 0.4), rgba(94, 234, 212, 0.2));
+	filter: blur(40px);
+	opacity: 0.4;
+	animation: pulse 4s ease-in-out infinite;
+}
+
+.quantum-hero-orb-core {
+	position: absolute;
+	z-index: 20;
+	width: 8rem;
+	height: 8rem;
+	border-radius: 50%;
+	border: 2px solid rgba(255, 255, 255, 0.1);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	backdrop-filter: blur(8px);
+}
+
+.quantum-hero-orb-inner {
+	width: 4rem;
+	height: 4rem;
+	background: white;
+	border-radius: 50%;
+	box-shadow: 0 0 50px rgba(255, 255, 255, 0.6);
+	animation: pulse 2s ease-in-out infinite;
+}
+
+.quantum-hud {
+	position: absolute;
+	padding: 1rem;
+	font-family: 'JetBrains Mono', monospace;
+	font-size: 0.75rem;
+}
+
+.quantum-hud-left {
+	top: 2.5rem;
+	left: 2.5rem;
+	border-left: 2px solid var(--chief-accent, var(--qc-glow));
+	color: var(--chief-accent, var(--qc-glow));
+}
+
+.quantum-hud-right {
+	bottom: 2.5rem;
+	right: 2.5rem;
+	border-right: 2px solid var(--chief-accent, var(--qc-accent));
+	color: var(--chief-accent, var(--qc-accent));
+	text-align: right;
+}
+
+.quantum-hero-content {
+	text-align: center;
+	z-index: 30;
+	max-width: 48rem;
+}
+
+.quantum-hero-label {
+	font-family: var(--chief-font, "Geist", sans-serif);
+	color: var(--chief-accent, var(--qc-glow));
+	letter-spacing: 0.2em;
+	font-size: 0.875rem;
+	margin-bottom: 1rem;
+	text-transform: uppercase;
+}
+
+.quantum-hero-title {
+	font-size: clamp(2rem, 5vw, 4rem);
+	font-weight: 800;
+	margin-bottom: 1.5rem;
+	line-height: 1.2;
+	color: var(--chief-text, var(--qc-text));
+}
+
+.quantum-hero-subtitle {
+	color: var(--chief-muted, var(--qc-muted));
+	font-family: var(--chief-font, "Geist", sans-serif);
+	font-size: 0.875rem;
+	margin-bottom: 2.5rem;
+	max-width: 42rem;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.quantum-hero-buttons {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	justify-content: center;
+}
+
+@media (max-width: 1024px) {
+	.quantum-hud-left,
+	.quantum-hud-right {
+		display: none;
+	}
+}
+
 .homepage-logo-container {
 	display: flex;
 	justify-content: left;
@@ -62,15 +205,23 @@
 	padding-right: 20px;
 	font-size: 25px;
 	transition: color 0.2s ease-in-out;
-	color: var(--secondary-color);
+	color: var(--chief-muted, var(--qc-muted));
 }
 
 .homepage-social-icon:hover {
-	color: var(--primary-color);
+	color: var(--chief-accent, var(--qc-glow));
 }
 
 .homepage-after-title {
 	display: flex;
+}
+
+.quantum-section-header {
+	margin-bottom: 1.5rem;
+}
+
+.quantum-section-projects .quantum-section-header + .all-projects-container {
+	padding-top: 0;
 }
 
 .homepage-projects {

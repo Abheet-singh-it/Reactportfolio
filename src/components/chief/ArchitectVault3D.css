@@ -1,0 +1,114 @@
+.arch-vault3d {
+	position: relative;
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 4rem 1.5rem 6rem;
+	overflow: hidden;
+}
+
+.vault3d-canvas-wrap {
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+}
+
+.vault3d-canvas-wrap canvas {
+	display: block;
+	width: 100% !important;
+	height: 100% !important;
+}
+
+.vault3d-content {
+	position: relative;
+	z-index: 2;
+	width: 100%;
+	max-width: 56rem;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.vault3d-title {
+	margin-bottom: 0.5rem;
+	color: var(--chief-text, #eae5ec);
+}
+
+.vault3d-sub {
+	font-family: var(--chief-font, "Geist", sans-serif);
+	font-size: 0.8rem;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--chief-accent, #5eead4);
+	opacity: 0.9;
+	margin-bottom: 3rem;
+}
+
+.vault3d-cards {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 2rem;
+	justify-items: center;
+	align-items: start;
+}
+
+.vault3d-cards-group {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+}
+
+.vault3d-group-label {
+	font-family: var(--chief-font);
+	font-size: 0.7rem;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	color: var(--chief-muted, #94a3b8);
+	margin-bottom: 0.25rem;
+}
+
+.vault3d-card {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	padding: 1rem 1.5rem;
+	background: rgba(10, 14, 23, 0.75);
+	backdrop-filter: blur(12px);
+	border: 1px solid rgba(94, 234, 212, 0.2);
+	border-radius: 12px;
+	color: var(--chief-text);
+	text-decoration: none;
+	font-size: 0.9rem;
+	font-weight: 500;
+	transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+}
+
+.vault3d-card:hover {
+	border-color: var(--chief-accent);
+	box-shadow: 0 0 24px rgba(94, 234, 212, 0.2);
+	transform: translateY(-2px);
+}
+
+.vault3d-card .material-symbols-outlined {
+	font-size: 1.25rem;
+	color: var(--chief-accent);
+}
+
+.vault3d-card-cert {
+	max-width: 280px;
+	width: 100%;
+}
+
+.vault3d-card-proj {
+	max-width: 280px;
+	width: 100%;
+}
+
+@media (max-width: 768px) {
+	.vault3d-cards {
+		grid-template-columns: 1fr;
+	}
+}

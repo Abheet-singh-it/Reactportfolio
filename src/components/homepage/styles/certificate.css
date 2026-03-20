@@ -1,19 +1,36 @@
 @import "../../../data/styles.css";
 
+.quantum-vault-header {
+    font-family: var(--chief-font, "Geist", sans-serif);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--chief-muted, var(--qc-muted));
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    border: 1px solid rgba(94, 234, 212, 0.15);
+    background: rgba(10, 14, 23, 0.5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .certificates-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
-    padding: 20px;
+    padding: 20px 0;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .certificate-card {
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: rgba(10, 14, 23, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(94, 234, 212, 0.2);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
     height: 100%;
     min-height: 200px;
     display: flex;
@@ -21,8 +38,9 @@
 }
 
 .certificate-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-4px);
+    border-color: rgba(94, 234, 212, 0.5);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 0 24px rgba(94, 234, 212, 0.15);
 }
 
 .certificate-content {
@@ -36,44 +54,46 @@
 }
 
 .certificate-title {
-    color: var(--primary-color);
+    color: var(--chief-text, var(--qc-text));
     font-size: 18px;
     font-weight: 700;
     margin-bottom: 15px;
+    font-family: var(--chief-font, "Geist", sans-serif);
 }
 
 .certificate-issuer {
-    color: var(--secondary-color);
+    color: var(--chief-muted, var(--qc-muted));
     font-size: 14px;
     margin-bottom: 10px;
+    font-family: var(--chief-font, "Geist", sans-serif);
 }
 
 .certificate-date {
-    color: var(--tertiary-color);
+    color: var(--chief-muted, #94a3b8);
     font-size: 12px;
     margin-bottom: 20px;
+    font-family: var(--chief-font, "Geist", sans-serif);
 }
 
 .view-certificate-btn {
-    background-color: transparent;
-    color: var(--secondary-color);
-    border: 2px solid var(--secondary-color);
+    background: rgba(94, 234, 212, 0.12);
+    color: var(--chief-accent, var(--qc-glow));
+    border: 1px solid rgba(94, 234, 212, 0.4);
     padding: 12px 25px;
-    border-radius: 8px;
+    border-radius: 4px;
     cursor: pointer;
     font-weight: 600;
     transition: all 0.3s ease;
     text-transform: uppercase;
-    font-size: 14px;
-    letter-spacing: 0.5px;
-    position: relative;
-    box-shadow: 4px 4px 0px var(--secondary-color);
-    transform: translateY(0);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    font-family: var(--chief-font, "Geist", sans-serif);
 }
 
 .view-certificate-btn:hover {
-    background-color: var(--primary-color);
-    transform: scale(1.05);
+    background: rgba(94, 234, 212, 0.2);
+    border-color: var(--chief-accent);
+    transform: scale(1.02);
 }
 
 .coming-soon {
@@ -82,7 +102,7 @@
 }
 
 .certificate-description {
-    color: var(--secondary-color);
+    color: var(--chief-muted, var(--secondary-color));
     font-size: 16px;
     font-style: italic;
     margin-top: 15px;
@@ -105,9 +125,10 @@
 
 .certificate-modal {
     position: relative;
-    background-color: white;
+    background: var(--chief-bg, var(--qc-deep));
+    border: 1px solid rgba(94, 234, 212, 0.25);
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 12px;
     max-width: 90%;
     max-height: 90vh;
 }
@@ -122,21 +143,21 @@
     position: absolute;
     top: -15px;
     right: -15px;
-    background-color: white;
-    border: none;
+    background: var(--chief-bg, var(--qc-deep));
+    border: 1px solid var(--chief-accent, var(--qc-glow));
+    color: var(--chief-text, var(--qc-text));
     border-radius: 50%;
     width: 30px;
     height: 30px;
     font-size: 20px;
     cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .close-modal-btn:hover {
-    background-color: #f0f0f0;
+    background: rgba(94, 234, 212, 0.15);
 }
 /* For responsive design */
 @media (max-width: 768px) {

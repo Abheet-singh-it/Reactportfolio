@@ -2,8 +2,18 @@
 
 .card {
 	mix-blend-mode: normal;
-	border-radius: 20px;
-	outline: 2px solid #f4f4f5;
+	border-radius: 12px;
+	background: rgba(10, 14, 23, 0.6);
+	backdrop-filter: blur(12px);
+	border: 1px solid rgba(94, 234, 212, 0.2);
+	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+	transition: all 0.3s ease;
+}
+
+.card:hover {
+	border-color: rgba(94, 234, 212, 0.5);
+	transform: translateY(-4px);
+	box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 0 24px rgba(94, 234, 212, 0.15);
 }
 
 .card-container {
@@ -18,14 +28,15 @@
 
 .card-icon {
 	font-size: 15px;
-	color: var(--tertiary-color);
+	color: var(--chief-accent, var(--qc-glow));
 }
 
 .card-title {
-	color: var(--secondary-color);
+	color: var(--chief-muted, var(--qc-muted));
 	font-size: 14px;
 	padding-left: 20px;
 	font-weight: 650;
+	font-family: var(--chief-font, "Geist", sans-serif);
 }
 
 .card-body {
