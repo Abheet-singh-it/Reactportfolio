@@ -22,7 +22,7 @@ const Projects = () => {
 	return (
 		<React.Fragment>
 			<Helmet>
-				<title>{`Projects | ${INFO.main.title}`}</title>
+				<title>{currentSEO?.title || `Projects | ${INFO.main.title}`}</title>
 				<meta name="description" content={currentSEO.description} />
 				<meta
 					name="keywords"
@@ -38,8 +38,8 @@ const Projects = () => {
 							<Logo width={46} />
 						</div>
 					</div>
-					<div className="projects-container">
-						<h3 className="quantum-section-label">// NEURAL INTERFACE MODULES</h3>
+					<main id="main-content" className="projects-container">
+						<h3 className="quantum-section-label">{`// NEURAL INTERFACE MODULES`}</h3>
 						<div className="title projects-title">
 							Things I’ve made trying to put my dent in the
 							universe.
@@ -61,7 +61,7 @@ const Projects = () => {
 						<div className="projects-list">
 							<AllProjects />
 						</div>
-					</div>
+					</main>
 					<div className="page-footer">
 						<ArchitectFooter />
 					</div>

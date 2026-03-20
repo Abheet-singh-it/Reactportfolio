@@ -1,77 +1,123 @@
 {
   "main": {
     "name": "Abheet Singh",
-    "title": "Abheet Singh - Professional Software Engineer (Full-Stack) | Generative AI & Automation",
-    "email": "abheet8360@gmail.com"
+    "title": "Professional Software Engineer (Full-Stack) | Generative AI & Automation",
+    "email": "abheet8360@gmail.com",
+    "role": "Chief Frontend Engineer · AI & Gaming UI",
+    "intro": "Hello, I'm",
+    "tagline": "Building product-based AIGC solutions at XGaming — an AIGC generative software company offering services partnered with AAA-level Krafton. Full-stack engineering, Generative AI, and automation. Based in Punjab, India."
   },
   "socials": {
     "linkedin": "https://www.linkedin.com/in/abheet-singh-3b8238165/",
     "github": "https://github.com/Abheet-singh-it",
     "instagram": "https://www.instagram.com/"
   },
+  "stats": [
+    { "label": "Shipped_Products", "value": "6+", "barWidth": 95 },
+    { "label": "AIGC_&_Gaming_UI", "value": "XGaming", "barWidth": 100 },
+    { "label": "Frontend_Systems", "value": "React · JS", "barWidth": 95 },
+    { "label": "MCP_&_AI_Tools", "value": "Code Brain", "barWidth": 85 }
+  ],
   "homepage": {
     "title": "Professional Software Engineer (Full-Stack) | Generative AI & Automation",
     "description": "Building product-based AIGC solutions at XGaming — an AIGC generative software company offering services partnered with AAA-level Krafton. Full-stack engineering, Generative AI, and automation. Based in Punjab, India.",
     "workExperience": [
       {
         "period": "December 2025 - Present",
-        "company": "XGaming",
+        "company": "XGaming (AIGC)",
         "location": "Gurugram, Haryana, India",
-        "position": "Software Engineer — AIGC & Product Services",
+        "position": "Software Engineer — AIGC & Product Services (Professional Role)",
+        "type": "FULL-TIME",
+        "icon": "rocket_launch",
+        "stack": ["React", "Node.js", "GSAP", "Three.js", "Python", "REST APIs", "Generative AI"],
         "achievements": [
-          "Building product-based generative software solutions at XGaming, an AIGC company partnered with AAA-level Krafton",
-          "Full-stack engineering, automation, and Generative AI with end-to-end ownership across frontend, backend, and AI workflows"
-        ]
+          "Full frontend, backend, and API integration services for AIGC generative software solutions — end-to-end ownership and maintenance",
+          "XGaming AIGC is partnered with AAA-level company Krafton, delivering B2B product-based services at enterprise quality standards",
+          "Onboarded as partner in Krafton Partner Program with full dedication — contributing to Krafton's ecosystem of gaming products",
+          "Architected 3D portfolio with Three.js + GSAP ScrollTrigger for cinematic web experiences",
+          "Learned Generative AI and Agentic AI frameworks directly from XGaming's AIGC team — a team of IITians building cutting-edge AI solutions"
+        ],
+        "learned": "Production-grade full-stack systems, B2B product delivery at AAA-level, Krafton partner ecosystem, Generative AI & Agentic AI learned from AIGC team (IITians)"
       },
       {
         "period": "September 2023 - December 2025",
         "company": "XGaming",
         "location": "Gurugram, Haryana, India",
-        "position": "Minecraft UI/UX Development & Deployment",
+        "position": "Minecraft Server Developer & UI/UX Engineer (6-Month Internship → Full Role)",
+        "type": "FULL-TIME",
+        "icon": "sports_esports",
+        "stack": ["Java", "Minecraft Bedrock", "JSON UI", "VPS Management", "Firewall", "Security", "JavaScript"],
         "achievements": [
-          "Minecraft UI/UX development and deployment for product-based services",
-          "Building intuitive frontend experiences and reliable backend systems in partnership with Krafton-level quality standards"
-        ]
+          "Completed 6-month internship at XGaming, then transitioned to full professional role based on performance",
+          "Development of AI-based Java plugins for Minecraft server — custom gameplay mechanics, NPC behavior, and automation systems",
+          "Maintained and managed VPS servers at highest level — server infrastructure, uptime monitoring, and performance optimization",
+          "Implemented and maintained firewall services for Minecraft servers — DDoS protection, access control, and security hardening",
+          "Designed and deployed Minecraft UI/UX systems using JSON UI for Bedrock Edition with responsive cross-platform layouts",
+          "Managed complete Minecraft server ecosystem: plugin development, security, server operations, and player experience"
+        ],
+        "learned": "Java plugin development, VPS/server infrastructure management, firewall & DDoS protection, game security architecture, server-side performance optimization"
       },
       {
         "period": "June 2024 - July 2024",
         "company": "Solitaire Infosys Inc",
         "location": "Chandigarh",
-        "position": "Industrial Training",
+        "position": "Industrial Training (6 Weeks)",
+        "type": "TRAINING",
+        "icon": "school",
+        "stack": ["Java", "MySQL", "System Design", "Software Engineering"],
         "achievements": [
-          "Advanced training in software development and system implementation"
-        ]
+          "Completed 6-week intensive industrial training in enterprise software development methodologies",
+          "Hands-on implementation of database-driven applications with structured engineering practices",
+          "Gained exposure to real-world software project lifecycles and system architecture patterns"
+        ],
+        "learned": "Enterprise development patterns, relational database design, disciplined software engineering methodology"
       },
       {
         "period": "December 2021 - June 2024",
-        "company": "Freelance",
+        "company": "XGaming (Freelance)",
         "location": "Remote",
-        "position": "Freelance Developer",
+        "position": "Freelance Minecraft Developer & Server Engineer",
+        "type": "FREELANCE",
+        "icon": "code",
+        "stack": ["Java", "Minecraft", "VPS", "Linux", "Security", "Node.js", "MERN Stack"],
         "achievements": [
-          "Self-motivated development of client projects",
-          "Full-stack delivery with clear communication and on-time execution"
-        ]
+          "Worked as freelancer under XGaming — maintaining Minecraft servers, developing custom plugins, and managing infrastructure",
+          "Built AI-based Java plugins for game mechanics, security features, and server automation systems",
+          "Managed VPS servers with firewall services, DDoS mitigation, and security hardening at production scale",
+          "Delivered 10+ full-stack client projects (MERN Stack) — e-commerce, portfolios, and business platforms",
+          "Handled complete server lifecycle: deployment, monitoring, security patches, and performance tuning"
+        ],
+        "learned": "Server infrastructure at scale, Java plugin architecture, security operations, client project management, MERN full-stack delivery"
       },
       {
         "period": "November 2022 - August 2023",
         "company": "Asobu",
         "location": "New Delhi, Delhi, India",
-        "position": "Minecraft UI/UX Development & Deployment",
+        "position": "Minecraft UI/UX Developer (6-Week Internship → 1-Year Full Contract)",
+        "type": "INTERNSHIP",
+        "icon": "videogame_asset",
+        "stack": ["Minecraft Bedrock", "JSON UI", "JavaScript", "Team Collaboration"],
         "achievements": [
-          "Minecraft UI/UX development and deployment",
-          "Collaborative delivery in a product environment"
-        ]
+          "Completed 6-week internship at Asobu, then extended to a full 1-year contract based on work quality and dedication",
+          "Contributed to Minecraft product UI development in a collaborative studio environment for the full contract period",
+          "Shipped production-ready UI components for gaming experiences with cross-team coordination across multiple releases"
+        ],
+        "learned": "Collaborative game development workflows, version control in game pipelines, UI component systems, studio work culture, long-term project ownership"
       },
       {
         "period": "January 2022 - March 2022",
         "company": "Defronix Cyber Security",
         "location": "India (Remote)",
         "position": "Cybersecurity Trainee",
+        "type": "TRAINING",
+        "icon": "shield",
+        "stack": ["Cybersecurity", "Network Security", "Penetration Testing", "Linux", "Firewall"],
         "achievements": [
-          "Learned about cyber security fundamentals and techniques to prevent cyber attacks in a remote setting",
-          "Explored the digital world and gained valuable insights into the cybersecurity field",
-          "Acquired knowledge on how to safeguard sensitive information and data from potential threats"
-        ]
+          "Trained in offensive and defensive security — network analysis, vulnerability assessment, and penetration testing",
+          "Applied cybersecurity knowledge directly to Minecraft server security — firewall configuration and threat mitigation",
+          "Gained foundational expertise in Linux system administration, secure coding practices, and threat modeling"
+        ],
+        "learned": "Security-first mindset, threat modeling, firewall management, Linux administration — skills directly applied to server security work at XGaming"
       }
     ],
     "certificates": [
@@ -79,15 +125,50 @@
         "title": "AIGC Company Training Certificate",
         "date": "July 2024",
         "issuer": "AIGC Gaming Private Limited",
-        "image": "https://media.licdn.com/dms/image/v2/D5622AQHbg-8YZMsT_g/feedshare-shrink_800/feedshare-shrink_800/0/1721327297470?e=1746057600&v=beta&t=foVSjkLm3GNfFhPFtuBxgMgkS9beNDQLan7AAhfxcrM",
+        "image": "",
         "description": "Professional training certification in AI game development and implementation"
       },
       {
-        "title": "Solitaire Infosys Industrial Training",
+        "title": "Solitaire Infosys Industrial Training (6 Weeks)",
         "date": "July 2024",
         "issuer": "Solitaire Infosys Inc",
-        "image": "https://media.licdn.com/dms/image/v2/D562DAQGeMxbG6NDB1Q/profile-treasury-image-shrink_1920_1920/profile-treasury-image-shrink_1920_1920/0/1722340932316?e=1743480000&v=beta&t=yKlcBx4U5RZCpf16vp2OBkUOM1wbHWm-GaQMx39CVas",
-        "description": "Industrial training in software development and system implementation"
+        "image": "",
+        "description": "6-week industrial training in enterprise software development and system implementation"
+      },
+      {
+        "title": "XGaming Internship Completion (6 Months)",
+        "date": "March 2024",
+        "issuer": "XGaming",
+        "image": "",
+        "description": "Completed 6-month internship — Minecraft server development, Java plugins, VPS management, security infrastructure"
+      },
+      {
+        "title": "Asobu Internship & Contract (6 Weeks + 1 Year)",
+        "date": "August 2023",
+        "issuer": "Asobu",
+        "image": "",
+        "description": "6-week internship extended to 1-year full contract — Minecraft UI/UX development and deployment"
+      },
+      {
+        "title": "Defronix Cybersecurity Training",
+        "date": "March 2022",
+        "issuer": "Defronix Cyber Security",
+        "image": "",
+        "description": "Cybersecurity fundamentals — network security, penetration testing, Linux administration"
+      },
+      {
+        "title": "Coursera — Generative AI Fundamentals",
+        "date": "2024",
+        "issuer": "Coursera",
+        "image": "",
+        "description": "Online certification in generative AI concepts, prompt engineering, and AI application development"
+      },
+      {
+        "title": "Coursera — Agentic AI & LLM Applications",
+        "date": "2025",
+        "issuer": "Coursera",
+        "image": "",
+        "description": "Advanced course on agentic AI systems, LLM orchestration, and AI-powered automation workflows"
       }
     ]
   },
@@ -98,43 +179,157 @@
   "projects": [
     {
       "title": "Code Brain MCP",
-      "description": "MCP server for AI coding assistants (Cursor, Claude Desktop, Codex): project memory in .brain/memory.md, task classification (fast/chunk/deep), and structured reasoning — one server so your AI has a persistent brain for the codebase. Open source, MIT. npx -y code-brain-mcp",
+      "description": "MCP server for AI coding assistants (Cursor, Claude Desktop, Codex): project memory, task classification (fast/chunk/deep), and structured reasoning — one server so your AI has a persistent brain for the codebase. Open source, MIT.",
       "logo": "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/javascript/javascript.png",
       "linkText": "View on npm",
-      "link": "https://www.npmjs.com/package/code-brain-mcp"
+      "link": "https://www.npmjs.com/package/code-brain-mcp",
+      "status": "DEPLOYED",
+      "tags": ["NODE", "MCP", "AI"]
+    },
+    {
+      "title": "College ERP System",
+      "description": "Full-stack ERP for Global Group of Institutes — attendance management, faculty management, and administrative services. Built as a college project with real-world deployment for managing institute operations.",
+      "logo": "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/javascript/javascript.png",
+      "linkText": "College Project",
+      "link": "#",
+      "status": "DEPLOYED",
+      "tags": ["MERN", "ERP", "FULL-STACK"]
     },
     {
       "title": "AI NPC Game Development",
-      "description": "Advanced AI-driven Non-Player Character system implementing sophisticated behavior patterns and dynamic interactions. Developed using cutting-edge AI technologies for enhanced gaming experience.",
+      "description": "Advanced AI-driven Non-Player Character system with sophisticated behavior patterns and dynamic interactions for enhanced gaming experience.",
       "logo": "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/python/python.png",
       "linkText": "View Project",
-      "link": "https://github.com/X-Gaming-Club/AI_AGENT_lobby"
+      "link": "https://github.com/X-Gaming-Club/AI_AGENT_lobby",
+      "status": "DEPLOYED",
+      "tags": ["PYTHON", "REACT", "GAME"]
     },
     {
       "title": "AI PvP Bot System",
-      "description": "Innovative AI-powered Player vs Player bot system featuring advanced decision-making algorithms and adaptive gameplay mechanics. Designed for competitive gaming environments.",
+      "description": "AI-powered Player vs Player bot system with advanced decision-making algorithms and adaptive gameplay mechanics for competitive gaming.",
       "logo": "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/javascript/javascript.png",
       "linkText": "View Project",
-      "link": "https://github.com/X-Gaming-Club/AI-PVP-BOT"
+      "link": "https://github.com/X-Gaming-Club/AI-PVP-BOT",
+      "status": "ACTIVE",
+      "tags": ["JAVASCRIPT", "NODE", "BOT"]
     },
     {
       "title": "Ranked PvP Platform",
-      "description": "Comprehensive ranking system for PvP gaming featuring sophisticated matchmaking algorithms, performance tracking, and competitive ladder implementation.",
+      "description": "Competitive ranking system with matchmaking algorithms, performance tracking, and ladder implementation for PvP gaming.",
       "logo": "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/javascript/javascript.png",
       "linkText": "View Project",
-      "link": "https://github.com/X-Gaming-Club/RankedPvP"
+      "link": "https://github.com/X-Gaming-Club/RankedPvP",
+      "status": "ALPHA",
+      "tags": ["REACT", "NODE", "PVP"]
+    },
+    {
+      "title": "XGaming Private Products",
+      "description": "Multiple shipped products under XGaming — AIGC solutions, Minecraft game systems, server infrastructure, and B2B services. Details restricted under company policy.",
+      "logo": "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/java/java.png",
+      "linkText": "Private",
+      "link": "#",
+      "status": "SHIPPED",
+      "tags": ["JAVA", "AIGC", "PRIVATE"]
     }
   ],
   "skills": [
-    { "category": "Top Skills", "items": ["MERN Stack", "Full-Stack Development", "Backend"] },
-    { "category": "Web Development", "items": ["Node.js", "React.js", "Frontend", "Backend"] },
+    { "category": "Top Skills", "items": ["MERN Stack", "Full-Stack Development", "Backend", "Java Plugins"] },
+    { "category": "Web Development", "items": ["Node.js", "React.js", "Frontend", "Backend", "REST APIs"] },
     { "category": "Programming", "items": ["Java", "Python", "JavaScript", "PHP"] },
     { "category": "Database", "items": ["MySQL", "MongoDB"] },
-    { "category": "Other", "items": ["Generative AI", "Automation", "Cybersecurity", "Problem Solving", "Project Management"] }
+    { "category": "DevOps & Security", "items": ["VPS Management", "Firewall", "DDoS Protection", "Linux", "Server Ops"] },
+    { "category": "Other", "items": ["Generative AI", "Automation", "Cybersecurity", "Minecraft Development", "Project Management"] }
   ],
+  "skillBars": [
+    { "label": "Full-Stack Engineering", "pct": 95, "tags": "REACT, NODE.JS, APIS, MERN" },
+    { "label": "Gaming & Java Plugins", "pct": 90, "tags": "MINECRAFT, JAVA, AI PLUGINS, JSON UI" },
+    { "label": "DevOps & Server Infra", "pct": 88, "tags": "VPS, FIREWALL, LINUX, SECURITY" },
+    { "label": "AI & Automation", "pct": 85, "tags": "GENERATIVE AI, MCP, PYTHON, AUTOMATION" }
+  ],
+  "techStack": [
+    {
+      "category": "3D & Graphics",
+      "icon": "view_in_ar",
+      "items": [
+        { "name": "Three.js", "level": 90, "detail": "IcosahedronGeometry, Points particle systems, WebGL rendering, scene management, dispose patterns" },
+        { "name": "WebGL", "level": 85, "detail": "Custom shaders, render pipelines, performance optimization, device-tier fallbacks" }
+      ]
+    },
+    {
+      "category": "Animation",
+      "icon": "animation",
+      "items": [
+        { "name": "GSAP", "level": 95, "detail": "ScrollTrigger, gsap.context(), timeline orchestration, matchMedia for reduced-motion" },
+        { "name": "Anime.js", "level": 80, "detail": "Character-level staggers, spring physics, loop animations — migrated to GSAP for consistency" },
+        { "name": "Lenis", "level": 85, "detail": "Smooth scroll integration, RAF-synced with GSAP ScrollTrigger, touch-optimized" }
+      ]
+    },
+    {
+      "category": "Frontend",
+      "icon": "code",
+      "items": [
+        { "name": "React 18", "level": 95, "detail": "Hooks, Context API, React.lazy/Suspense, dynamic imports, route-based splitting" },
+        { "name": "JavaScript", "level": 95, "detail": "ES2024, async/await, IntersectionObserver, ResizeObserver, MutationObserver" },
+        { "name": "CSS Architecture", "level": 90, "detail": "CSS variables, glassmorphism system, responsive design, prefers-reduced-motion" }
+      ]
+    },
+    {
+      "category": "Backend & AI",
+      "icon": "cloud",
+      "items": [
+        { "name": "Node.js", "level": 92, "detail": "Express, REST APIs, MCP server protocol, file-system operations, npm publishing" },
+        { "name": "Python", "level": 85, "detail": "AI/ML workflows, automation scripts, data processing, generative AI pipelines" },
+        { "name": "MongoDB", "level": 88, "detail": "Document modeling, aggregation pipelines, indexing strategies, Mongoose ODM" }
+      ]
+    },
+    {
+      "category": "DevOps & Security",
+      "icon": "security",
+      "items": [
+        { "name": "VPS Management", "level": 90, "detail": "Linux server deployment, monitoring, uptime management, performance tuning at production scale" },
+        { "name": "Firewall & Security", "level": 88, "detail": "DDoS protection, access control, security hardening, threat mitigation for game servers" },
+        { "name": "Java (Minecraft)", "level": 85, "detail": "Custom plugin development, AI-based game mechanics, NPC behavior systems, server automation" }
+      ]
+    }
+  ],
+  "buildLog": {
+    "title": "Build Log",
+    "subtitle": "From Cybersecurity Trainee → Minecraft Dev → Krafton Partner Engineer",
+    "footerNote": "XGaming AIGC · Krafton Partner · Full-Stack · AI Engineering · Gaming Infrastructure",
+    "stages": [
+      { "id": "learn", "label": "Learn", "icon": "school" },
+      { "id": "intern", "label": "Intern", "icon": "badge" },
+      { "id": "build", "label": "Build", "icon": "code" },
+      { "id": "secure", "label": "Secure", "icon": "shield" },
+      { "id": "ship", "label": "Ship", "icon": "rocket_launch" }
+    ],
+    "milestones": [
+      { "year": "2022", "title": "Cybersecurity Training", "desc": "Defronix — Network security, penetration testing, Linux fundamentals", "status": "completed" },
+      { "year": "2022-23", "title": "Asobu (6 Weeks → 1 Year)", "desc": "6-week internship extended to full 1-year contract — Minecraft UI/UX", "status": "completed" },
+      { "year": "2022-24", "title": "XGaming Freelance", "desc": "Minecraft servers, Java plugins, VPS management, firewall security", "status": "completed" },
+      { "year": "2023", "title": "XGaming Internship", "desc": "6-month internship — full server development & infrastructure", "status": "completed" },
+      { "year": "2024", "title": "Solitaire Infosys", "desc": "6-week industrial training — enterprise Java & system design", "status": "completed" },
+      { "year": "2024", "title": "XGaming Full Role", "desc": "Promoted to full Minecraft developer — AI plugins, security, operations", "status": "completed" },
+      { "year": "2025", "title": "AIGC Professional", "desc": "XGaming AIGC — full-stack, APIs, Krafton B2B, partner program", "status": "active" },
+      { "year": "2025", "title": "Code Brain MCP", "desc": "Open-source npm package — AI coding assistant memory server (personal project)", "status": "active" },
+      { "year": "2022-26", "title": "College ERP", "desc": "Full-stack ERP for Global Group of Institutes — attendance & faculty management", "status": "active" }
+    ]
+  },
   "contact": {
+    "title": "Let's Get in Touch",
+    "subtitle": "Open to collaborations in AI, Web3, and Game Design.",
+    "terminalLabel": "root@abheet-singh:~/contact_portal",
+    "terminalTitle": "Initiate Protocol",
+    "terminalDesc": "Drop a transmission below to establish link.",
     "phone": "6283857226",
     "address": "Amritsar, Punjab, India",
-    "languages": ["Hindi", "Punjabi", "English"]
+    "languages": ["Hindi", "Punjabi", "English"],
+    "formFields": [
+      { "id": "name", "label": "IDENTIFIER", "type": "text", "placeholder": "YOUR NAME" },
+      { "id": "email", "label": "COMM_LINK", "type": "email", "placeholder": "EMAIL@SERVER.COM" },
+      { "id": "message", "label": "PAYLOAD", "type": "textarea", "placeholder": "TRANSMIT YOUR MESSAGE...", "rows": 4 }
+    ],
+    "submitLabel": "Execute_Transmission",
+    "submittedLabel": "Transmitted"
   }
 }

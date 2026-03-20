@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import ReactGA from "react-ga4";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import { LoadingProvider, useLoading } from "./context/LoadingContext";
 import LoadingScreen from "./components/chief/LoadingScreen";
@@ -16,6 +18,26 @@ import { TRACKING_ID } from "./data/tracking";
 import CustomCursor from "./components/chief/CustomCursor";
 import "./app.css";
 
+// Global GSAP plugin registration — once only
+gsap.registerPlugin(ScrollTrigger);
+
+// Reduced motion: disable all GSAP animations
+if (typeof window !== "undefined") {
+	const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+	if (mq.matches) {
+		gsap.globalTimeline.timeScale(0);
+		gsap.defaults({ duration: 0 });
+	}
+	mq.addEventListener("change", (e) => {
+		if (e.matches) {
+			gsap.globalTimeline.timeScale(0);
+			ScrollTrigger.getAll().forEach((t) => t.kill());
+		} else {
+			gsap.globalTimeline.timeScale(1);
+		}
+	});
+}
+
 function AppContent() {
 	const { isLoading } = useLoading();
 	useEffect(() => {
@@ -28,6 +50,9 @@ function AppContent() {
 		<>
 			{isLoading && <LoadingScreen />}
 			<div className="App chief-root">
+				<a href="#main-content" className="skip-to-content">
+					Skip to main content
+				</a>
 				<CustomCursor />
 				<Routes>
 					<Route path="/" element={<Homepage />} />

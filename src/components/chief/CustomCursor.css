@@ -8,8 +8,8 @@
 	border-radius: 50%;
 	pointer-events: none;
 	z-index: 9999;
-	background: #e6c3ff;
-	box-shadow: 0 0 30px rgba(175, 131, 255, 0.6);
+	background: #5eead4;
+	box-shadow: 0 0 30px rgba(94, 234, 212, 0.5);
 	mix-blend-mode: difference;
 	transition: width 0.3s ease, height 0.3s ease;
 }

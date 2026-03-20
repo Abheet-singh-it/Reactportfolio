@@ -8,6 +8,7 @@
 	border: 1px solid rgba(94, 234, 212, 0.2);
 	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 	transition: all 0.3s ease;
+	cursor: pointer;
 }
 
 .card:hover {

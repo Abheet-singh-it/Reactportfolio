@@ -41,13 +41,15 @@
 	width: 100% !important;
 	font-family: var(--chief-font);
 	color: var(--chief-text);
+	line-height: 1.3;
 }
 
 .about-subtitle {
 	width: 85% !important;
 	color: var(--chief-muted);
-	line-height: 1.75;
+	line-height: 1.7;
 	white-space: pre-line;
+	max-width: 40rem;
 }
 
 .about-left-side {

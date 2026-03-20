@@ -2,10 +2,9 @@ import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
+import { useLocation } from "react-router-dom";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-import CustomCursor from "../components/chief/CustomCursor";
 import ChiefLanding from "../components/chief/ChiefLanding";
 import ArchitectNav from "../components/quantum/ArchitectNav";
 import ArchitectStats from "../components/quantum/ArchitectStats";
@@ -22,29 +21,41 @@ import SEO from "../data/seo";
 import "../styles/chief-theme.css";
 import "../styles/architect-portfolio.css";
 
-gsap.registerPlugin(ScrollTrigger);
-
 const Homepage = () => {
+	const location = useLocation();
 	useSmoothScroll(true);
 
 	useEffect(() => {
-		window.scrollTo(0, 0);
-	}, []);
+		// Handle scrollTo from nav when coming from another page
+		if (location.state?.scrollTo) {
+			const el = document.getElementById(location.state.scrollTo);
+			if (el) {
+				setTimeout(() => {
+					el.scrollIntoView({ behavior: "smooth", block: "start" });
+				}, 300);
+			}
+		} else {
+			window.scrollTo(0, 0);
+		}
+	}, [location.state]);
 
 	useEffect(() => {
-		const sections = [".arch-stats", ".arch-archive-header", ".arch-chronology", ".arch-core-wrap", ".buildlog-section", ".arch-protocol"];
-		sections.forEach((sel) => {
-			const el = document.querySelector(sel);
-			if (!el) return;
-			gsap.fromTo(el, { opacity: 0, y: 50 }, {
-				opacity: 1,
-				y: 0,
-				duration: 0.9,
-				ease: "power3.out",
-				scrollTrigger: { trigger: el, start: "top 85%", toggleActions: "play none none none" },
+		const ctx = gsap.context(() => {
+			const sections = [".arch-stats", ".arch-archive-header", ".arch-chronology", ".arch-core-wrap", ".buildlog-section", ".arch-protocol"];
+			sections.forEach((sel) => {
+				const el = document.querySelector(sel);
+				if (!el) return;
+				gsap.fromTo(el, { opacity: 0, y: 50 }, {
+					opacity: 1,
+					y: 0,
+					duration: 0.9,
+					ease: "power3.out",
+					scrollTrigger: { trigger: el, start: "top 85%", once: true },
+				});
 			});
 		});
-		return () => ScrollTrigger.getAll().forEach((t) => t.kill());
+
+		return () => ctx.revert();
 	}, []);
 
 	const currentSEO = SEO.find((item) => item.page === "home");
@@ -52,7 +63,7 @@ const Homepage = () => {
 	return (
 		<>
 			<Helmet>
-				<title>Abheet Singh // Chief Frontend Engineer · AI & Gaming UI</title>
+				<title>{currentSEO.title}</title>
 				<meta name="description" content={currentSEO.description} />
 				<meta name="keywords" content={currentSEO.keywords.join(", ")} />
 			</Helmet>
@@ -62,7 +73,7 @@ const Homepage = () => {
 				<div className="chief-glow-orb chief-glow-orb--tl" aria-hidden="true" />
 				<div className="chief-glow-orb chief-glow-orb--br2" aria-hidden="true" />
 				<ArchitectNav />
-				<main>
+				<main id="main-content">
 					<ChiefLanding />
 					<ArchitectStats />
 					<ArchitectArchive />

@@ -8,7 +8,14 @@
       "Bash(where python3:*)",
       "WebSearch",
       "Bash(python \"$HOME/.claude/plugins/cache/ui-ux-pro-max-skill/ui-ux-pro-max/2.0.1/.claude/skills/ui-ux-pro-max/scripts/search.py\" \"portfolio developer dark modern glassmorphism 3D animation\" --design-system -p \"Abheet Portfolio\")",
-      "WebFetch(domain:github.com)"
+      "WebFetch(domain:github.com)",
+      "Bash(npx react-scripts:*)",
+      "Bash(python \"C:\\\\Users\\\\abhay\\\\.claude\\\\plugins\\\\cache\\\\ui-ux-pro-max-skill\\\\ui-ux-pro-max\\\\2.0.1\\\\.claude\\\\skills\\\\ui-ux-pro-max\\\\scripts\\\\search.py\" \"portfolio developer dark cinematic glassmorphism 3D gaming AI\" --design-system -p \"Abheet Portfolio\" -f markdown)",
+      "Bash(python \"C:\\\\Users\\\\abhay\\\\.claude\\\\plugins\\\\cache\\\\ui-ux-pro-max-skill\\\\ui-ux-pro-max\\\\2.0.1\\\\src\\\\ui-ux-pro-max\\\\scripts\\\\search.py\" \"portfolio developer dark cinematic glassmorphism 3D gaming AI\" --design-system -p \"Abheet Portfolio\" -f markdown)",
+      "Bash(python \"C:\\\\Users\\\\abhay\\\\.claude\\\\plugins\\\\cache\\\\ui-ux-pro-max-skill\\\\ui-ux-pro-max\\\\2.0.1\\\\src\\\\ui-ux-pro-max\\\\scripts\\\\search.py\" \"glassmorphism dark mode 3D hero\" --domain style -n 5)",
+      "Bash(python \"C:\\\\Users\\\\abhay\\\\.claude\\\\plugins\\\\cache\\\\ui-ux-pro-max-skill\\\\ui-ux-pro-max\\\\2.0.1\\\\src\\\\ui-ux-pro-max\\\\scripts\\\\search.py\" \"hero landing portfolio card footer navigation\" --domain landing -n 5)",
+      "Bash(python \"C:\\\\Users\\\\abhay\\\\.claude\\\\plugins\\\\cache\\\\ui-ux-pro-max-skill\\\\ui-ux-pro-max\\\\2.0.1\\\\src\\\\ui-ux-pro-max\\\\scripts\\\\search.py\" \"timeline chronology scroll animation stagger\" --domain ux -n 8)",
+      "Bash(node:*)"
     ]
   }
 }

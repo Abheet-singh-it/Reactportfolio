@@ -1,120 +1,231 @@
 import React, { useState, useRef, useEffect } from "react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { animate, stagger } from "animejs";
 import INFO from "../../data/user";
 import "./ArchitectProtocol.css";
 
-gsap.registerPlugin(ScrollTrigger);
+const contactData = INFO.contact || {};
+const formFields = contactData.formFields || [];
+const socials = INFO.socials || {};
 
 const ArchitectProtocol = () => {
-	const [form, setForm] = useState({ name: "", email: "", message: "" });
+	const initialForm = {};
+	formFields.forEach((f) => { initialForm[f.id] = ""; });
+
+	const [form, setForm] = useState(initialForm);
+	const [errors, setErrors] = useState({});
+	const [submitted, setSubmitted] = useState(false);
 	const sectionRef = useRef(null);
-	const boxRef = useRef(null);
-	const headerRef = useRef(null);
 	const formRef = useRef(null);
+
+	const validate = () => {
+		const errs = {};
+		formFields.forEach((f) => {
+			if (!form[f.id]?.trim()) {
+				errs[f.id] = `${f.label.replace(/_/g, " ")} is required`;
+			} else if (f.type === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form[f.id])) {
+				errs[f.id] = "Invalid email format";
+			}
+		});
+		return errs;
+	};
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		window.location.href = `mailto:${INFO.main.email}?subject=Contact from Portfolio&body=${encodeURIComponent(`Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`)}`;
+		const errs = validate();
+		setErrors(errs);
+		if (Object.keys(errs).length > 0) return;
+
+		setSubmitted(true);
+		const body = formFields.map((f) => `${f.label}: ${form[f.id]}`).join("\n");
+		window.location.href = `mailto:${INFO.main.email}?subject=Contact from Portfolio&body=${encodeURIComponent(body)}`;
+		setTimeout(() => setSubmitted(false), 3000);
 	};
 
 	const handleChange = (e) => {
-		setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+		const { name, value } = e.target;
+		setForm((prev) => ({ ...prev, [name]: value }));
+		if (errors[name]) setErrors((prev) => ({ ...prev, [name]: undefined }));
 	};
 
 	useEffect(() => {
 		const section = sectionRef.current;
-		const box = boxRef.current;
-		const formEl = formRef.current;
-		if (!section || !box) return;
+		if (!section) return;
 
-		// GSAP: section and box scroll reveal
-		gsap.fromTo(box, { opacity: 0, y: 40 }, {
-			opacity: 1,
-			y: 0,
-			duration: 1,
-			ease: "power3.out",
-			scrollTrigger: { trigger: section, start: "top 80%", toggleActions: "play none none none" },
-		});
+		const ctx = gsap.context(() => {
+			// Left panel slide in
+			gsap.fromTo(".protocol-left",
+				{ opacity: 0, x: -30 },
+				{ opacity: 1, x: 0, duration: 0.8, ease: "power3.out",
+					scrollTrigger: { trigger: section, start: "top 80%", once: true } }
+			);
+			// Right panel slide in
+			gsap.fromTo(".protocol-right",
+				{ opacity: 0, x: 30 },
+				{ opacity: 1, x: 0, duration: 0.8, delay: 0.15, ease: "power3.out",
+					scrollTrigger: { trigger: section, start: "top 80%", once: true } }
+			);
+		}, section);
 
-		// Anime.js: stagger form elements
-		if (formEl) {
-			const labels = formEl.querySelectorAll("label");
-			const inputs = formEl.querySelectorAll("input, textarea, button");
-			const all = [...labels, ...inputs];
-			animate(all, {
-				translateX: [-20, 0],
-				opacity: [0, 1],
-				duration: 700,
-				delay: stagger(80, { start: 0.2 }),
-				ease: "outQuad",
-			});
-		}
+		return () => ctx.revert();
 	}, []);
 
-	// GSAP: focus glow on inputs
+	// Focus glow
 	useEffect(() => {
 		const formEl = formRef.current;
 		if (!formEl) return;
 		const inputs = formEl.querySelectorAll("input, textarea");
+		const handlers = [];
 		inputs.forEach((el) => {
-			el.addEventListener("focus", () => {
-				gsap.to(el, { boxShadow: "0 0 0 2px var(--chief-accent), 0 0 20px rgba(94, 234, 212, 0.2)", duration: 0.3 });
-			});
-			el.addEventListener("blur", () => {
-				gsap.to(el, { boxShadow: "none", duration: 0.3 });
-			});
+			const onFocus = () => gsap.to(el, { boxShadow: "0 0 0 2px rgba(94,234,212,0.25), 0 0 16px rgba(94,234,212,0.08)", duration: 0.25 });
+			const onBlur = () => gsap.to(el, { boxShadow: "none", duration: 0.2 });
+			el.addEventListener("focus", onFocus);
+			el.addEventListener("blur", onBlur);
+			handlers.push({ el, onFocus, onBlur });
+		});
+		return () => handlers.forEach(({ el, onFocus, onBlur }) => {
+			el.removeEventListener("focus", onFocus);
+			el.removeEventListener("blur", onBlur);
 		});
 	}, []);
 
 	return (
-		<section className="arch-protocol arch-protocol-advanced" id="protocol" ref={sectionRef}>
-			<div className="arch-protocol-box arch-protocol-glass" ref={boxRef}>
-				<div className="arch-protocol-inner">
-					<div className="arch-protocol-header" ref={headerRef}>
-						<div className="arch-protocol-dot red" />
-						<div className="arch-protocol-dot yellow" />
-						<div className="arch-protocol-dot green" />
-						<span>INITIATE_PROTOCOL.SH</span>
+		<section className="protocol-section" id="protocol" ref={sectionRef}>
+			<div className="protocol-header">
+				<h2 className="arch-section-title">Get In Touch</h2>
+				<p className="arch-section-subtitle">{contactData.subtitle || "Open to collaborations"}</p>
+			</div>
+
+			<div className="protocol-grid">
+				{/* Left — Info Panel */}
+				<div className="protocol-left">
+					<div className="protocol-card protocol-info-card">
+						<h3 className="protocol-info-title">Let's build something great together.</h3>
+						<p className="protocol-info-desc">
+							I'm always interested in hearing about new projects, creative ideas, or opportunities to collaborate.
+						</p>
+
+						<div className="protocol-details">
+							<div className="protocol-detail">
+								<span className="material-symbols-outlined" aria-hidden="true">mail</span>
+								<div>
+									<span className="protocol-detail-label">Email</span>
+									<a href={`mailto:${INFO.main.email}`}>{INFO.main.email}</a>
+								</div>
+							</div>
+							{contactData.address && (
+								<div className="protocol-detail">
+									<span className="material-symbols-outlined" aria-hidden="true">location_on</span>
+									<div>
+										<span className="protocol-detail-label">Location</span>
+										<span>{contactData.address}</span>
+									</div>
+								</div>
+							)}
+							{contactData.languages?.length > 0 && (
+								<div className="protocol-detail">
+									<span className="material-symbols-outlined" aria-hidden="true">translate</span>
+									<div>
+										<span className="protocol-detail-label">Languages</span>
+										<span>{contactData.languages.join(", ")}</span>
+									</div>
+								</div>
+							)}
+						</div>
+
+						<div className="protocol-socials">
+							{socials.github && (
+								<a href={socials.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="protocol-social-link">
+									<svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+										<path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+									</svg>
+									<span>GitHub</span>
+								</a>
+							)}
+							{socials.linkedin && (
+								<a href={socials.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="protocol-social-link">
+									<svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+										<path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+									</svg>
+									<span>LinkedIn</span>
+								</a>
+							)}
+							{socials.instagram && (
+								<a href={socials.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="protocol-social-link">
+									<svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
+										<rect x="2" y="2" width="20" height="20" rx="5" />
+										<circle cx="12" cy="12" r="5" />
+										<circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none" />
+									</svg>
+									<span>Instagram</span>
+								</a>
+							)}
+						</div>
 					</div>
-					<div className="arch-protocol-prompt">
-						<p>$ ssh guest@abheet.dev</p>
-						<p className="comment"># Welcome. Please enter your request.</p>
+				</div>
+
+				{/* Right — Form */}
+				<div className="protocol-right">
+					<div className="protocol-card protocol-form-card">
+						<div className="protocol-terminal-bar">
+							<div className="protocol-dots" aria-hidden="true">
+								<span className="protocol-dot-r" />
+								<span className="protocol-dot-y" />
+								<span className="protocol-dot-g" />
+							</div>
+							<span className="protocol-terminal-label">{contactData.terminalTitle || "Send Message"}</span>
+						</div>
+
+						<form className="protocol-form" ref={formRef} onSubmit={handleSubmit} noValidate>
+							{formFields.map((field) => (
+								<div key={field.id} className="protocol-field">
+									<label htmlFor={`protocol-${field.id}`}>{field.label}</label>
+									{field.type === "textarea" ? (
+										<textarea
+											id={`protocol-${field.id}`}
+											name={field.id}
+											placeholder={field.placeholder}
+											rows={field.rows || 5}
+											value={form[field.id] || ""}
+											onChange={handleChange}
+											aria-invalid={errors[field.id] ? "true" : undefined}
+											aria-describedby={errors[field.id] ? `${field.id}-error` : undefined}
+											required
+										/>
+									) : (
+										<input
+											id={`protocol-${field.id}`}
+											name={field.id}
+											type={field.type}
+											placeholder={field.placeholder}
+											value={form[field.id] || ""}
+											onChange={handleChange}
+											aria-invalid={errors[field.id] ? "true" : undefined}
+											aria-describedby={errors[field.id] ? `${field.id}-error` : undefined}
+											required
+										/>
+									)}
+									{errors[field.id] && (
+										<span id={`${field.id}-error`} className="protocol-error" role="alert">
+											{errors[field.id]}
+										</span>
+									)}
+								</div>
+							))}
+							<button type="submit" className="protocol-submit" disabled={submitted}>
+								{submitted ? (
+									<>
+										<span className="material-symbols-outlined" aria-hidden="true">check_circle</span>
+										{contactData.submittedLabel || "Sent"}
+									</>
+								) : (
+									<>
+										<span className="material-symbols-outlined" aria-hidden="true">send</span>
+										{contactData.submitLabel || "Send Message"}
+									</>
+								)}
+							</button>
+						</form>
 					</div>
-					<form className="arch-protocol-form" ref={formRef} onSubmit={handleSubmit}>
-						<label htmlFor="arch-name">IDENTIFIER:</label>
-						<input
-							id="arch-name"
-							name="name"
-							type="text"
-							placeholder="YOUR NAME"
-							value={form.name}
-							onChange={handleChange}
-						/>
-						<label htmlFor="arch-email">ADDRESS:</label>
-						<input
-							id="arch-email"
-							name="email"
-							type="email"
-							placeholder="EMAIL@SERVER.COM"
-							value={form.email}
-							onChange={handleChange}
-							required
-						/>
-						<label htmlFor="arch-msg">PAYLOAD:</label>
-						<textarea
-							id="arch-msg"
-							name="message"
-							placeholder="TRANSMIT YOUR MESSAGE..."
-							rows={4}
-							value={form.message}
-							onChange={handleChange}
-						/>
-						<button type="submit" className="arch-btn-submit" data-cursor="disable">
-							Execute_Transmission
-						</button>
-					</form>
 				</div>
 			</div>
 		</section>

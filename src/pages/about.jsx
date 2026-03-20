@@ -22,12 +22,9 @@ const About = () => {
 	return (
 		<React.Fragment>
 			<Helmet>
-				<title>{`About | ${INFO.main.title}`}</title>
+				<title>{currentSEO?.title || `About | ${INFO.main.title}`}</title>
 				<meta name="description" content={currentSEO.description} />
-				<meta
-					name="keywords"
-					content={currentSEO.keywords.join(", ")}
-				/>
+				<meta name="keywords" content={currentSEO.keywords.join(", ")} />
 			</Helmet>
 
 			<div className="page-content chief-page">
@@ -39,30 +36,30 @@ const About = () => {
 						</div>
 					</div>
 
-					<div className="about-container">
+					<main id="main-content" className="about-container">
 						<h3 className="chief-section-title about-section-label">Core Profile</h3>
 						<div className="about-main">
 							<div className="about-right-side">
-								<div className="title about-title">
+								<h1 className="title about-title">
 									{INFO.about.title}
-								</div>
-
+								</h1>
 								<div className="subtitle about-subtitle">
 									{INFO.about.description}
 								</div>
 							</div>
-
 							<div className="about-left-side">
 								<div className="about-image-container">
 									<div className="about-image-wrapper">
 										<img
 											src="about.jpg"
-											alt="about"
+											alt={`Portrait of ${INFO.main.name}`}
 											className="about-image"
+											loading="lazy"
+											width="300"
+											height="300"
 										/>
 									</div>
 								</div>
-
 								<div className="about-socials">
 									<Socials />
 								</div>
@@ -71,7 +68,7 @@ const About = () => {
 						<div className="about-socials-mobile">
 							<Socials />
 						</div>
-					</div>
+					</main>
 					<div className="page-footer">
 						<ArchitectFooter />
 					</div>

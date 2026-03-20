@@ -22,7 +22,7 @@
 	flex-wrap: wrap;
 	gap: 1rem;
 	width: 100%;
-	max-width: var(--chief-c-width, 94%);
+	max-width: calc(100% - 3rem);
 	margin: 0 auto;
 }
 
@@ -158,6 +158,104 @@
 }
 
 @media (min-width: 1200px) {
-	.chief-header-inner { max-width: calc(100% - 160px); }
+	.chief-header-inner { max-width: calc(100% - 4rem); }
 	.chief-nav { gap: 4rem; }
+}
+
+/* Scrolled state */
+.chief-header--scrolled {
+	background: rgba(10, 14, 23, 0.95) !important;
+	backdrop-filter: blur(20px);
+	border-bottom-color: rgba(94, 234, 212, 0.1);
+}
+
+/* Hamburger */
+.chief-hamburger {
+	display: none;
+	flex-direction: column;
+	gap: 5px;
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: 8px;
+	z-index: 200;
+}
+
+.chief-hamburger span {
+	display: block;
+	width: 24px;
+	height: 2px;
+	background: var(--chief-text);
+	border-radius: 2px;
+	transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.chief-hamburger--open span:nth-child(1) {
+	transform: translateY(7px) rotate(45deg);
+}
+
+.chief-hamburger--open span:nth-child(2) {
+	opacity: 0;
+}
+
+.chief-hamburger--open span:nth-child(3) {
+	transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile menu */
+.chief-mobile-menu {
+	position: fixed;
+	inset: 0;
+	background: rgba(10, 14, 23, 0.98);
+	backdrop-filter: blur(24px);
+	z-index: 100;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.3s ease;
+}
+
+.chief-mobile-menu--open {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+.chief-mobile-nav {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2rem;
+}
+
+.chief-mobile-nav .chief-nav-link {
+	font-size: 1.5rem;
+	font-weight: 600;
+}
+
+.chief-mobile-cta {
+	margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+	.chief-nav,
+	.chief-header-email,
+	.chief-header-cta {
+		display: none !important;
+	}
+
+	.chief-hamburger {
+		display: flex;
+	}
+}
+
+/* Section link button (same look as nav link) */
+.chief-nav-section-link {
+	background: none;
+	border: none;
+	padding: 0;
+	cursor: pointer;
+	font: inherit;
+	color: inherit;
 }

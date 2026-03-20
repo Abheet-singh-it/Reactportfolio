@@ -28,10 +28,20 @@
 	padding: 2rem;
 }
 
+.notfound-code {
+	font-family: var(--chief-font);
+	font-size: clamp(5rem, 20vw, 10rem);
+	font-weight: 900;
+	color: var(--chief-accent);
+	line-height: 1;
+	margin-bottom: 0.5rem;
+	text-shadow: 0 0 40px rgba(94, 234, 212, 0.3);
+}
+
 .notfound-title {
 	font-family: var(--chief-font);
 	color: var(--chief-text);
-	font-size: clamp(3rem, 12vw, 5rem);
+	font-size: clamp(1.5rem, 4vw, 2rem);
 	font-weight: 700;
 	margin-bottom: 1rem;
 }

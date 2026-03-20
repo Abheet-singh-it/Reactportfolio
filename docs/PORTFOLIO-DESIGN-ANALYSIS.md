@@ -1,8 +1,8 @@
 ---
 title: "Abheet Singh Portfolio — Design Analysis & Improvement Roadmap"
-version: "1.0"
+version: "1.5.0"
 date: "2026-03-20"
-stack: "React 18 + GSAP + Anime.js + Three.js + Lenis"
+stack: "React 18 + GSAP + Three.js + Lenis"
 theme: "Chief (Dark Cinematic + Teal/Cyan)"
 status: "Active Development"
 ---
@@ -11,6 +11,7 @@ status: "Active Development"
 
 ## Table of Contents
 
+0. [UI Improvements Implemented (v1.1.0)](#0-ui-improvements-implemented-v110)
 1. [Current Design System](#1-current-design-system)
 2. [Component Architecture](#2-component-architecture)
 3. [Animation Library Audit](#3-animation-library-audit)
@@ -21,6 +22,152 @@ status: "Active Development"
 8. [Performance Optimization](#8-performance-optimization)
 9. [Accessibility Fixes](#9-accessibility-fixes)
 10. [Implementation Priority Matrix](#10-implementation-priority-matrix)
+
+---
+
+## 0. UI Improvements Implemented (v1.1.0)
+
+### Global Layout & Tokens
+- Global page layout primitives (consistent wrapper, spacing): `src/app.css`
+- Reusable glass-card + button system (primary/outline): `src/app.css`
+- Chief theme tokens + cinematic background layers: `src/styles/chief-theme.css`
+
+### Navigation
+- New fixed header with scrolled state + active link styling: `src/components/quantum/ArchitectNav.jsx`
+- Mobile overlay menu + body scroll lock while open: `src/components/quantum/ArchitectNav.jsx`
+
+### Accessibility & Interaction
+- Skip-to-content link + focus-visible outlines: `src/index.css` + `src/App.js`
+- Reduced-motion handling (CSS + GSAP global disable): `src/index.css` + `src/App.js`
+
+### Pages
+- Contact page terminal layout + inline validation + external links in new tab: `src/pages/contact.jsx` + `src/pages/styles/contact.css`
+- Terminal-style protocol form with ARIA error wiring + GSAP input focus glow: `src/components/quantum/ArchitectProtocol.jsx`
+- 404 page layout + entry animation: `src/pages/404.jsx` + `src/pages/styles/404.css`
+
+---
+
+## 0.5 UI/UX Pro Max Improvements (v1.2.0)
+
+### Hero Section 3D Redesign
+- **New geometry:** IcosahedronGeometry (detail=1) replaces TorusKnot — more premium, modern feel
+- **Inner glow sphere:** Phong material with emissive pulse for cinematic depth
+- **3 orbital rings** at different radii with opposing rotations
+- **Particle field:** Using `Points` + `AdditiveBlending` (200 particles desktop, 80 mobile) — 10x more performant than individual meshes
+- **Orbiting accent spheres:** 6 spheres on elliptical paths with Y-axis bobbing
+- **Mouse interaction:** `mousemove` on container drives group rotation via smooth lerp — responds to user movement
+- **Cinematic lighting:** HemisphereLight + key + rim + fill + ambient (5-light setup)
+- **Files:** `src/components/chief/Hero3D.jsx`, `src/components/chief/Hero3D.css`
+
+### Footer Redesign
+- **4-column grid layout:** Brand | Navigate | Connect | Back-to-top
+- **Navigation links:** Home, About, Projects, Contact with hover slide effect
+- **Social icons:** GitHub, LinkedIn, Email in bordered glass boxes with hover lift
+- **Back-to-top button:** Arrow + label, smooth scroll behavior
+- **Bottom bar:** Copyright + production-ready status with pulse dot
+- **Files:** `src/components/quantum/ArchitectFooter.jsx`, `src/components/quantum/ArchitectFooter.css`
+
+### Project Cards Redesign
+- **4-project grid** (was 3) with responsive columns (1 → 2 → 4)
+- **Status indicators:** Color-coded dots (green=deployed, teal=active, amber=alpha)
+- **Arrow icon:** Appears on hover with translate animation
+- **Extra tags:** 3 tags per project (was 2)
+- **Clean interaction:** No cursor effects, no tilt — stable hover with border highlight only
+- **Files:** `src/components/quantum/ArchitectArchive.jsx`, `src/styles/architect-portfolio.css`
+
+### System Chronology Redesign (v1.3.0)
+- **Rich timeline cards** — Each role now shows: tech stack tags, detailed achievements, "learned" callout with lightbulb icon
+- **ROLE_DETAILS mapping** — 6 roles with curated highlights elaborating on real work: Three.js scene architecture, GSAP ScrollTrigger orchestration, MCP protocol design, Minecraft JSON UI, enterprise training, cybersecurity foundations
+- **Employment type badges** — Color-coded: FULL-TIME (green), FREELANCE (teal), CONTRACT (cyan), TRAINING (amber)
+- **Animated timeline line** — GSAP scrub draws the vertical line as user scrolls through the section
+- **Card stagger** — Cards slide in from alternating sides (left/right) with `power3.out` easing on scroll
+- **Dot pulse** — Timeline dots animate with `back.out(2)` spring when entering viewport
+- **Stack // System section** — 4-category technical proficiency showcase:
+  - **3D & Graphics:** Three.js (90%), WebGL (85%) — with detail on IcosahedronGeometry, Points, dispose patterns
+  - **Animation:** GSAP (95%), Anime.js (80%), Lenis (85%) — with detail on ScrollTrigger, matchMedia, RAF sync
+  - **Frontend:** React 18 (95%), JavaScript (95%), CSS Architecture (90%) — glassmorphism, reduced-motion, IntersectionObserver
+  - **Backend & AI:** Node.js (92%), Python (85%), MongoDB (88%) — MCP protocol, AI pipelines, aggregation
+- **Animated skill bars** — Width fills on scroll with `cubic-bezier(0.22, 1, 0.36, 1)` easing
+- **Glassmorphism cards** — blur(12px), teal border, hover border highlight
+- **Mobile responsive** — Timeline switches to single-column with left-aligned line on <1024px
+- **Files:** `src/components/quantum/ArchitectChronology.jsx`, `src/styles/architect-portfolio.css`
+
+### Single Source of Truth — JSON-Driven (v1.4.0) `DONE`
+All hardcoded data removed from components. Everything reads from `portfolio-data.json`:
+
+| Data | JSON Path | Used By |
+|------|-----------|---------|
+| Name, role, intro, tagline | `main.*` | ChiefLanding |
+| Social links | `socials.*` | Socials, Footer, Protocol |
+| Stats (4 cards + bar widths) | `stats[]` | ArchitectStats |
+| Work experience (6 roles + type/icon/stack/achievements/learned) | `homepage.workExperience[]` | ArchitectChronology |
+| Certificates (title/date/issuer/image/desc) | `homepage.certificates[]` | BuildLogSection |
+| Projects (title/desc/link/status/tags) | `projects[]` | ArchitectArchive, BuildLogSection |
+| Skills (5 categories) | `skills[]` | BuildLogSection |
+| Skill bars (3 bars + pct/tags) | `skillBars[]` | ArchitectCore |
+| Tech stack (4 categories + items/level/detail) | `techStack[]` | ArchitectChronology Stack System |
+| Build log (stages/title/subtitle/footerNote) | `buildLog.*` | BuildLogSection |
+| Contact (title/subtitle/terminal labels/formFields/address/languages) | `contact.*` | ArchitectProtocol, Contact page |
+
+### Build Log Polish (v1.4.0) `DONE`
+- Skills summary group added — shows all 5 skill categories from JSON
+- Certificate issuer now displayed (hidden on mobile, shown on desktop)
+- Project status read from JSON (`DEPLOYED`/`ACTIVE`/`ALPHA`) with green color for shipped
+- Count indicators: "certifications (2)", "projects (4)"
+- All labels/titles/footerNote from `buildLog` JSON object
+
+### Contact Protocol Polish (v1.4.0) `DONE`
+- Contact info section added: address, email, languages — all from `contact` JSON
+- Social link badges (`[GIT]`, `[LNK]`, `[IG]`) from `socials` JSON
+- Form fields dynamically rendered from `contact.formFields[]` — id, label, type, placeholder, rows
+- Submit/submitted labels from JSON (`submitLabel`, `submittedLabel`)
+- Terminal label and description from JSON
+- Validation dynamically generated from field definitions
+
+### Full-Width Layout + Content Polish (v1.5.0) `DONE`
+
+**Layout — Full-Width Sections:**
+- `.arch-section` no longer has `max-width: 80rem` — sections span full viewport width
+- Inner content constrained via `.arch-section > * { max-width: 80rem; margin: auto; }`
+- Hero `.arch-hero` max-width removed — full-width hero
+- Content wrapper widened from 1200px to 1400px
+- Hero landing container widened to 1400px
+- Footer inner widened to 1400px
+- Nav header uses `calc(100% - 3rem)` instead of fixed variable
+- Build log pipeline widened to 56rem, logs grid to 64rem
+- Protocol form widened from 42rem to 48rem
+- Hero right side (3D) widened to 600px
+- Hero left text widened to 40rem, desc to 34rem
+
+**Typography — UI/UX Pro Max Rules Applied:**
+- Section titles: responsive `clamp()`, weight 800, line-height 1.2
+- Section subtitles: 0.8rem, letter-spacing 0.12em, line-height 1.5
+- Project card descriptions: switched from mono to body font for readability
+- Stat values: responsive clamp, uses CSS variables for color
+- Hero title: tighter clamp (max 4rem), weight 800, letter-spacing -0.03em
+- Hero role: line-height 1.5, increased spacing
+- Hero desc: wider (34rem), slightly larger font, line-height 1.7
+- Build log: line-height 1.2-1.5 added across all text elements
+- Protocol form: field spacing increased to 1.25rem
+- Contact terminal: tighter gap, max-width on desc for readability
+- About page: line-height 1.3 on title, 1.7 on description, max-width 40rem
+
+**Spacing — 8dp Rhythm:**
+- Section padding standardized to `6rem 2rem`
+- Mobile padding: `0 1rem 3rem`
+- Consistent margins between title → subtitle → content
+
+### Section Routing (Next Level) `DONE`
+- **IntersectionObserver:** Tracks which section is in viewport, highlights active nav link
+- **SectionLink component:** On homepage, nav buttons smooth-scroll to `#archive`, `#core`, `#protocol`
+- **Cross-page routing:** From non-homepage, clicking Work/Stack/Contact navigates to `/` with `state.scrollTo` — homepage reads it and scrolls after mount
+- **Files:** `src/components/quantum/ArchitectNav.jsx`, `src/pages/homepage.jsx`
+
+### UI/UX Pro Max Design System Applied
+- **Style:** Modern Dark (Cinema Mobile) — no pure #000, LinearGradient base, ambient blobs, blur glassmorphism
+- **Pattern:** Portfolio Grid — visuals first, clean cards, footer contact
+- **Interaction:** 150-300ms micro-interactions, spring easing, no decorative cursor effects
+- **Anti-patterns avoided:** No emoji icons, consistent SVG/Material icons, prefers-reduced-motion respected, all text >=0.6rem
 
 ---
 
@@ -101,81 +248,100 @@ LoadingContext (React Context) → Global loading state
 
 ## 3. Animation Library Audit
 
-### Current State: Three Libraries + CSS
+### Current State: Two Libraries + CSS (Anime.js removed)
 
-| Library | Version | Where Used | Purpose |
-|---------|---------|-----------|---------|
-| **GSAP** | 3.12.7 | ChiefLanding, BuildLog, Vault3D, Protocol, Footer | ScrollTrigger, entrance animations, scroll-linked 3D |
-| **Anime.js** | 4.3.6 | ChiefLanding, BuildLog, Orbit | Char-level text animations, looped pulses, form glow |
-| **Three.js** | 0.168.0 | Hero3D, ArchitectVault3D | 3D torus knot, particles, orbiting cubes |
-| **Lenis** | 1.1.13 | useSmoothScroll hook | Smooth scroll (homepage only) |
-| **CSS** | native | Throughout | Keyframe animations (orbs, marquee, float, spin) |
+| Library | Version | Where Used | Purpose | Status |
+|---------|---------|-----------|---------|--------|
+| **GSAP** | 3.12.7 | All components | ScrollTrigger, entrance, scroll-linked 3D, char animations | `ACTIVE` |
+| **Three.js** | 0.168.0 | Hero3D, ArchitectVault3D | 3D icosahedron, particles, orbiting cubes | `ACTIVE` |
+| **Lenis** | 1.1.13 | useSmoothScroll hook | Smooth scroll (homepage) | `ACTIVE` |
+| **Anime.js** | — | — | — | `REMOVED` |
+| **CSS** | native | Throughout | Keyframe animations (orbs, marquee, float, spin) | `ACTIVE` |
 
-### Issues Identified
+### Issues — All Resolved
 
 #### GSAP Issues
-1. **ScrollTrigger memory leaks** — Missing cleanup in some components (BuildLogSection, ArchitectFooter)
-2. **Overlapping triggers** — Multiple ScrollTrigger instances on adjacent sections cause janky scroll
-3. **No `scrub` consistency** — Some use `scrub: 1`, others `scrub: true`, some have no scrub
-4. **Missing `prefers-reduced-motion`** — No GSAP matchMedia for accessibility
-5. **Plugin registration** — `gsap.registerPlugin(ScrollTrigger)` called in multiple components instead of once globally
+1. ~~ScrollTrigger memory leaks~~ — `DONE` All components use `gsap.context()` + `ctx.revert()`
+2. ~~Overlapping triggers~~ — `DONE` Using `once: true` for entrances, consistent `scrub: 0.8`
+3. ~~No scrub consistency~~ — `DONE` Standardized to `scrub: 0.8` for scroll-linked, `once: true` for entrances
+4. ~~Missing prefers-reduced-motion~~ — `DONE` `gsap.matchMedia()` in App.js + CSS `@media`
+5. ~~Plugin registration~~ — `DONE` Single `gsap.registerPlugin(ScrollTrigger)` in App.js
 
 #### Anime.js Issues
-1. **v4 API migration incomplete** — Some patterns look like v3 API mixed with v4
-2. **No cleanup on unmount** — Anime.js animations not paused/removed in useEffect cleanup
-3. **Redundant with GSAP** — Character stagger animations can be done with GSAP SplitText (already have GSAP)
-4. **Performance conflict** — Running Anime.js and GSAP simultaneously on same elements risks timing conflicts
+1-4. ~~All issues~~ — `DONE` Anime.js fully removed; all animations migrated to GSAP equivalents
 
 #### Three.js Issues
-1. **No responsive canvas** — Canvas doesn't resize cleanly on window resize
-2. **No dispose pattern** — Geometries, materials, and textures not disposed on unmount (GPU memory leak)
-3. **No fallback for low-end devices** — Three.js renders regardless of device capability
-4. **No lazy loading** — Three.js bundle (~600KB) loads immediately even if 3D section is below fold
-5. **requestAnimationFrame** not cancelled on unmount in some cases
-6. **Particle count hardcoded** — 32 particles regardless of device performance
+1. ~~No responsive canvas~~ — `DONE` Using `ResizeObserver` instead of window resize
+2. ~~No dispose pattern~~ — `DONE` `scene.traverse()` + `renderer.forceContextLoss()` on unmount
+3. ~~No fallback for low-end devices~~ — `DONE` CSS fallback on mobile/no-WebGL, tiered rendering
+4. ~~No lazy loading~~ — `DONE` `React.lazy()` + `Suspense` for Hero3D
+5. ~~RAF not cancelled~~ — `DONE` `rafRef` pattern with `cancelAnimationFrame` in cleanup
+6. ~~Particle count hardcoded~~ — `DONE` Points particle field: 200 desktop, 80 mobile
 
 #### Cross-Library Issues
-1. **Bundle bloat** — GSAP (50KB) + Anime.js (17KB) + Three.js (600KB) + Lenis (15KB) = ~682KB of animation libraries
-2. **No animation orchestration** — Libraries run independently, no unified timeline
-3. **Duplicate capabilities** — GSAP and Anime.js both do stagger/timeline animations
-4. **No loading prioritization** — All libraries load at once; should code-split Three.js
+1. ~~Bundle bloat~~ — `DONE` Removed Anime.js (-17KB), Three.js code-split into chunk
+2. ~~No animation orchestration~~ — `DONE` GSAP is sole animation engine
+3. ~~Duplicate capabilities~~ — `DONE` Anime.js removed entirely
+4. ~~No loading prioritization~~ — `DONE` Three.js lazy loaded via React.lazy
 
 ---
 
 ## 4. UI/UX Issues & Anti-Patterns
 
 ### Critical (Priority 1 — Accessibility)
-| Issue | Location | Rule Violated |
-|-------|----------|---------------|
-| No `alt` text on project logos | `project.jsx` | `alt-text` |
-| No `aria-label` on icon-only social links | `socials.jsx`, `ArchitectFooter.jsx` | `aria-labels` |
-| No `prefers-reduced-motion` support | Global | `reduced-motion` |
-| Focus rings removed on buttons | `chief-theme.css` | `focus-states` |
-| Color contrast on `--chief-muted` (#94a3b8) vs `--chief-bg` (#0a0e17) | Global | `color-contrast` — ratio is ~5.2:1 (passes AA but barely) |
-| No skip-to-content link | `App.js` | `skip-links` |
-| Custom cursor hides native focus | `CustomCursor.jsx` | `keyboard-nav` |
+| Issue | Location | Rule Violated | Status |
+|-------|----------|---------------|--------|
+| Improve `alt` text on project logos | `project.jsx` | `alt-text` | `DONE` — about.jsx has proper alt |
+| Missing `aria-label` on icon-only social links | `socials.jsx`, `ArchitectFooter.jsx` | `aria-labels` | `DONE` |
+| Missing `prefers-reduced-motion` support | Global | `reduced-motion` | `DONE` — CSS + GSAP matchMedia |
+| Missing keyboard focus treatment | Global | `focus-states` | `DONE` — `:focus-visible` in index.css |
+| Color contrast `--chief-muted` vs `--chief-bg` | Global | `color-contrast` ~5.2:1 | `PASS AA` — Monitor |
+| Missing skip-to-content link | `App.js` | `skip-links` | `DONE` |
+| Custom cursor hides native focus | `CustomCursor.jsx` | `keyboard-nav` | `DONE` — Desktop-only, pointer:fine check |
+| Pink/purple cursor color | `CustomCursor.css` | `color-consistency` | `DONE` — Changed to teal #5eead4 |
+| `outline: none` without `:focus-visible` | Protocol, Contact CSS | `focus-states` | `DONE` — Changed to `outline: 0` with border focus |
+| Font sizes below 12px | Multiple files | `readable-font-size` | `DONE` — All increased to min 0.6rem |
+| Low text opacity (<0.85) | BuildLog, LoadingScreen | `contrast-readability` | `DONE` — Increased to 0.9/0.25 |
 
 ### High (Priority 2 — Interaction & Navigation)
-| Issue | Location | Rule Violated |
-|-------|----------|---------------|
-| No loading/disabled state on CTA buttons | `ChiefLanding.jsx` | `loading-buttons` |
-| Contact form has no validation | `ArchitectProtocol.jsx` | `error-feedback` |
-| No back-to-top on long homepage | Homepage | `back-behavior` |
-| Mobile nav hamburger has no animation | `navBar.jsx` | `state-transition` |
-| 3D canvas blocks scroll on touch devices | `Hero3D.jsx` | `gesture-conflicts` |
-| Social links open in same tab | `socials.jsx` | Standard UX |
-| No 404 page animation | `404.jsx` | `empty-states` |
+| Issue | Location | Rule Violated | Status |
+|-------|----------|---------------|--------|
+| Missing `cursor: pointer` on cards/links | Cards, projects, socials | `cursor-pointer` | `DONE` — Global rule + per-element |
+| Missing form validation | `ArchitectProtocol.jsx`, `contact.jsx` | `error-feedback` | `DONE` — Inline errors + aria |
+| Missing back-to-top on long homepage | Homepage | `back-behavior` | `DONE` — Footer back-to-top button |
+| Mobile nav hamburger lacks animation | `ArchitectNav.jsx` | `state-transition` | `DONE` — X morph + overlay |
+| Grab cursor on 3D canvas | `Hero3D.css` | `cursor-pointer` | `DONE` — Removed grab/grabbing |
+| Social links open in same tab | `socials.jsx` | Standard UX | `DONE` — target="_blank" |
+| Missing 404 page animation | `404.jsx` | `empty-states` | `DONE` — GSAP entrance |
+| Section routing not smooth | `ArchitectNav.jsx` | `navigation-consistency` | `DONE` — IntersectionObserver + scrollTo |
+| Missing hover transitions | `socials.css`, buttons | `state-transition` | `DONE` — 0.2s ease on all |
+| Inconsistent border-radius | Multiple files | `consistency` | `DONE` — Standardized to rem/pill |
 
 ### Medium (Priority 3 — Performance & Layout)
-| Issue | Location | Rule Violated |
-|-------|----------|---------------|
-| No lazy loading on images | Throughout | `lazy-loading` |
-| Three.js not code-split | `Hero3D.jsx`, `ArchitectVault3D.jsx` | `bundle-splitting` |
-| No skeleton screens | Loading states | `progressive-loading` |
-| Font not preloaded | `index.html` | `font-preload` |
-| No `image-dimension` declarations | Image elements | `content-jumping` |
-| CSS files not critical-path optimized | Multiple imports | `critical-css` |
-| Scrollbar custom styling heavy | `app.css` | `reduce-reflows` |
+| Issue | Location | Rule Violated | Status |
+|-------|----------|---------------|--------|
+| Missing lazy loading on images | `about.jsx` | `lazy-loading` | `DONE` — loading="lazy" on about image |
+| Three.js not code-split | `Hero3D.jsx`, `ArchitectVault3D.jsx` | `bundle-splitting` | `DONE` — React.lazy + dynamic import |
+| Missing skeleton screens | Loading states | `progressive-loading` | `BACKLOG` |
+| Font not preloaded | `index.html` | `font-preload` | `DONE` — Geist preload added |
+| Missing `image-dimension` declarations | `about.jsx` | `content-jumping` | `DONE` — width/height on img |
+| CSS files not critical-path optimized | Multiple imports | `critical-css` | `BACKLOG` |
+| Scrollbar custom styling | `app.css` | `reduce-reflows` | `DONE` — Refined to 6px |
+| Hardcoded colors not using vars | LoadingScreen.css | `color-semantic` | `DONE` — Replaced with var() |
+
+### UI/UX Pro Max Polish (Priority 4 — v1.2.1)
+| Issue | Location | Rule | Status |
+|-------|----------|------|--------|
+| Hero 3D icosahedron redesign | `Hero3D.jsx` | `hero-centric` | `DONE` |
+| Mouse-interactive 3D rotation | `Hero3D.jsx` | `gesture-feedback` | `DONE` |
+| Project cards clean (no tilt/cursor) | `ArchitectArchive.jsx` | `stable-interaction` | `DONE` |
+| Project cards glare removed | `architect-portfolio.css` | `no-decorative-only` | `DONE` |
+| Status dot indicators | `ArchitectArchive.jsx` | `state-clarity` | `DONE` |
+| Footer 4-column redesign | `ArchitectFooter.jsx` | `nav-hierarchy` | `DONE` |
+| Footer back-to-top button | `ArchitectFooter.jsx` | `back-behavior` | `DONE` |
+| Section scroll routing | `ArchitectNav.jsx` | `navigation-consistency` | `DONE` |
+| Active section tracking | `ArchitectNav.jsx` | `nav-state-active` | `DONE` |
+| Cross-page scrollTo | `homepage.jsx` | `deep-linking` | `DONE` |
 
 ---
 

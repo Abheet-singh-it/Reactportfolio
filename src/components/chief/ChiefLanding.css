@@ -11,7 +11,7 @@
 
 .chief-landing-container {
 	width: 100%;
-	max-width: var(--chief-c-max, 1920px);
+	max-width: 1400px;
 	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
@@ -22,16 +22,17 @@
 .chief-landing-left {
 	flex: 1;
 	text-align: center;
-	max-width: 36rem;
+	max-width: 40rem;
 }
 
 .chief-landing-intro {
 	font-family: var(--chief-font);
-	font-size: 1rem;
+	font-size: 0.9rem;
 	letter-spacing: 0.15em;
 	color: var(--chief-accent);
 	margin: 0 0 0.75rem;
 	font-weight: 400;
+	line-height: 1.5;
 }
 
 .chief-landing-badge {
@@ -67,12 +68,12 @@
 }
 
 .chief-landing-title {
-	font-size: clamp(2.5rem, 10vw, 4.5rem);
-	font-weight: 700;
+	font-size: clamp(2.5rem, 8vw, 4rem);
+	font-weight: 800;
 	line-height: 1.05;
-	letter-spacing: -0.02em;
+	letter-spacing: -0.03em;
 	text-transform: uppercase;
-	margin: 0 0 0.75rem;
+	margin: 0 0 1rem;
 	color: var(--chief-text);
 }
 
@@ -84,8 +85,9 @@
 	font-size: clamp(1rem, 2.5vw, 1.25rem);
 	color: var(--chief-accent);
 	letter-spacing: 0.05em;
-	margin: 0 0 1.25rem;
+	margin: 0 0 1.5rem;
 	font-weight: 500;
+	line-height: 1.5;
 }
 
 .chief-role-char {
@@ -93,11 +95,11 @@
 }
 
 .chief-landing-desc {
-	font-size: clamp(0.9rem, 1.8vw, 1rem);
-	line-height: 1.65;
+	font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+	line-height: 1.7;
 	color: var(--chief-muted);
-	margin: 0 0 2rem;
-	max-width: 28rem;
+	margin: 0 0 2.5rem;
+	max-width: 34rem;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -203,7 +205,68 @@
 
 	.chief-landing-right {
 		flex: 0 1 50%;
-		max-width: 560px;
+		max-width: 600px;
 		aspect-ratio: 1;
 	}
+}
+
+/* Hero CSS fallback for mobile/no-WebGL */
+.chief-hero-fallback {
+	width: 100%;
+	height: 100%;
+	min-height: 300px;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	border-radius: 1rem;
+}
+
+.chief-hero-fallback-shape {
+	position: absolute;
+	border-radius: 50%;
+	border: 1px solid rgba(94, 234, 212, 0.2);
+	animation: chief-fallback-spin 20s linear infinite;
+}
+
+.chief-hero-fallback-shape--1 {
+	width: 200px;
+	height: 200px;
+	border-color: rgba(94, 234, 212, 0.15);
+}
+
+.chief-hero-fallback-shape--2 {
+	width: 280px;
+	height: 280px;
+	border-color: rgba(34, 211, 238, 0.1);
+	animation-duration: 25s;
+	animation-direction: reverse;
+}
+
+.chief-hero-fallback-shape--3 {
+	width: 140px;
+	height: 140px;
+	border-width: 2px;
+	border-color: rgba(94, 234, 212, 0.25);
+	animation-duration: 15s;
+}
+
+.chief-hero-fallback-glow {
+	width: 120px;
+	height: 120px;
+	border-radius: 50%;
+	background: radial-gradient(circle, rgba(94, 234, 212, 0.2) 0%, transparent 70%);
+	filter: blur(20px);
+	animation: chief-fallback-pulse 4s ease-in-out infinite;
+}
+
+@keyframes chief-fallback-spin {
+	from { transform: rotate(0deg); }
+	to { transform: rotate(360deg); }
+}
+
+@keyframes chief-fallback-pulse {
+	0%, 100% { transform: scale(1); opacity: 0.6; }
+	50% { transform: scale(1.3); opacity: 1; }
 }

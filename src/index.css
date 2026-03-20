@@ -21,3 +21,58 @@ code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
 		monospace;
 }
+
+/* Skip-to-content link */
+.skip-to-content {
+	position: fixed;
+	top: -100%;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 9999;
+	background: var(--chief-accent);
+	color: var(--chief-bg);
+	padding: 0.75rem 1.5rem;
+	font-family: var(--chief-font);
+	font-weight: 700;
+	font-size: 0.875rem;
+	text-decoration: none;
+	border-radius: 0 0 0.5rem 0.5rem;
+	transition: top 0.2s ease;
+}
+
+.skip-to-content:focus {
+	top: 0;
+	outline: none;
+}
+
+/* Global focus-visible styles */
+:focus-visible {
+	outline: 2px solid var(--chief-accent, #5eead4);
+	outline-offset: 2px;
+}
+
+/* Remove default outline, keep focus-visible */
+:focus:not(:focus-visible) {
+	outline: none;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+
+	.chief-glow-orb {
+		display: none !important;
+	}
+
+	.chief-hero3d,
+	.vault3d-canvas-wrap {
+		display: none !important;
+	}
+}

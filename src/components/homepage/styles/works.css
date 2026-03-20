@@ -78,7 +78,7 @@
 
     .work-duration {
         width: calc(100% - 40px);
-        font-size: 9.3px;
+        font-size: 11px;
     }
 }
 
@@ -89,7 +89,7 @@
     }
 
     .work-subtitle {
-        font-size: 11px;
+        font-size: 12px;
         padding-left: 40px;
     }
 }

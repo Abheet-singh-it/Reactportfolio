@@ -80,7 +80,7 @@
 .contact-terminal-body {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	gap: 2.5rem;
+	gap: 2rem;
 	padding: 2rem;
 }
 
@@ -90,6 +90,7 @@
 	margin-bottom: 0.75rem;
 	color: var(--chief-text);
 	letter-spacing: 0.05em;
+	line-height: 1.3;
 }
 
 .contact-terminal-desc {
@@ -97,6 +98,7 @@
 	font-size: 0.9rem;
 	margin-bottom: 1.5rem;
 	line-height: 1.6;
+	max-width: 28rem;
 }
 
 .contact-terminal-links {
@@ -143,7 +145,7 @@
 }
 
 .quantum-input:focus {
-	outline: none;
+	outline: 0;
 	border-color: var(--chief-accent);
 	box-shadow: 0 0 0 1px rgba(94, 234, 212, 0.2);
 }
@@ -173,6 +175,18 @@
 .contact-submit-btn:hover {
 	background: var(--chief-teal);
 	box-shadow: 0 0 24px rgba(94, 234, 212, 0.3);
+}
+
+/* Contact form validation */
+.contact-terminal-form .arch-protocol-error {
+	display: block;
+	font-size: 0.75rem;
+	color: #ef4444;
+	margin-top: 0.25rem;
+}
+
+.quantum-input[aria-invalid="true"] {
+	border-color: #ef4444;
 }
 
 @media (max-width: 768px) {

@@ -8,6 +8,7 @@
 	background: rgba(10, 14, 23, 0.4);
 	border: 1px solid rgba(94, 234, 212, 0.15);
 	transition: all 0.3s ease;
+	cursor: pointer;
 }
 
 .homepage-article:hover {
